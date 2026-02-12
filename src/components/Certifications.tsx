@@ -18,133 +18,133 @@ const certificates: Certificate[] = [
   // Top 3 featured certificates
   {
     id: 1,
-    title: "Foundation Certificate - IITM BS Degree",
+    title: "Foundation Certificate - IIT Madras BS Degree",
     issuer: "IIT Madras",
-    image: "/images/My-Certifications/Foundation-Certificate-IITM/Foundation-Certificate-IITM.png",
-    link: "/images/My-Certifications/Foundation-Certificate-IITM/Foundation-Certificate-IITM.png"
+    image: "/images/My-Certifications/foundation_iitm_certificate.png",
+    link: "/images/My-Certifications/foundation_iitm_certificate.png"
   },
   {
     id: 2,
     title: "Natural Language Processing Specialization",
     issuer: "DeepLearning.AI",
-    image: "/images/My-Certifications/Natural-Language-Processing/Natural_langage_Processing_career_certificate.png",
-    link: "/images/My-Certifications/Natural-Language-Processing/Natural_langage_Processing_career_certificate.png"
+    image: "/images/My-Certifications/natural_language_processing_career_certificate.png",
+    link: "/images/My-Certifications/natural_language_processing_career_certificate.png"
   },
   {
     id: 3,
     title: "Deep Learning with PyTorch Specialization",
     issuer: "Coursera",
-    image: "/images/My-Certifications/Deep-Learning/Pytorch_career_certifiacte.png",
-    link: "/images/My-Certifications/Deep-Learning/Pytorch_career_certifiacte.png"
+    image: "/images/My-Certifications/pytorch_DL_career_certificate.png",
+    link: "/images/My-Certifications/pytorch_DL_career_certificate.png"
   },
   // NLP Course Certificates
   {
     id: 4,
-    title: "NLP - Classification & Vector Spaces",
+    title: "NLP with Classification and Vector Spaces",
     issuer: "DeepLearning.AI",
-    image: "/images/My-Certifications/Natural-Language-Processing/NLP_with_classifications_vector_spaces.png",
-    link: "/images/My-Certifications/Natural-Language-Processing/NLP_with_classifications_vector_spaces.png"
+    image: "/images/My-Certifications/nlp_with_classification_vector_spaces.png",
+    link: "/images/My-Certifications/nlp_with_classification_vector_spaces.png"
   },
   {
     id: 5,
-    title: "NLP - Probabilistic Models",
+    title: "NLP with Probabilistic Models",
     issuer: "DeepLearning.AI",
-    image: "/images/My-Certifications/Natural-Language-Processing/NLP_with_probablistic_models.png",
-    link: "/images/My-Certifications/Natural-Language-Processing/NLP_with_probablistic_models.png"
+    image: "/images/My-Certifications/nlp_with_probablistic_models.png",
+    link: "/images/My-Certifications/nlp_with_probablistic_models.png"
   },
   {
     id: 6,
-    title: "NLP - Sequence Models",
+    title: "NLP with Sequence Models",
     issuer: "DeepLearning.AI",
-    image: "/images/My-Certifications/Natural-Language-Processing/NLP_with_sequence_models.png",
-    link: "/images/My-Certifications/Natural-Language-Processing/NLP_with_sequence_models.png"
+    image: "/images/My-Certifications/nlp_with_sequence_models.png",
+    link: "/images/My-Certifications/nlp_with_sequence_models.png"
   },
   {
     id: 7,
-    title: "NLP - Attention Models",
+    title: "NLP with Attention Models",
     issuer: "DeepLearning.AI",
-    image: "/images/My-Certifications/Natural-Language-Processing/NLP_with_attention_models.png",
-    link: "/images/My-Certifications/Natural-Language-Processing/NLP_with_attention_models.png"
+    image: "/images/My-Certifications/nlp_with_attention_models.png",
+    link: "/images/My-Certifications/nlp_with_attention_models.png"
   },
   // Deep Learning Course Certificates
   {
     id: 8,
-    title: "PyTorch - Foundation Concepts",
+    title: "Introduction to Deep Learning with PyTorch",
     issuer: "Coursera",
-    image: "/images/My-Certifications/Deep-Learning/foundation-concepts-of-pytorch.png",
-    link: "/images/My-Certifications/Deep-Learning/foundation-concepts-of-pytorch.png"
+    image: "/images/My-Certifications/foundational_concepts_of_pytorch.png",
+    link: "/images/My-Certifications/foundational_concepts_of_pytorch.png"
   },
   {
     id: 9,
-    title: "PyTorch - Building Neural Networks",
+    title: "Building Deep Learning Models with PyTorch",
     issuer: "Coursera",
-    image: "/images/My-Certifications/Deep-Learning/building-neuralnets.png",
-    link: "/images/My-Certifications/Deep-Learning/building-neuralnets.png"
+    image: "/images/My-Certifications/pytorch_building_neural_networks.png",
+    link: "/images/My-Certifications/pytorch_building_neural_networks.png"
   },
   {
     id: 10,
-    title: "PyTorch - Advanced Applications",
+    title: "Deep Neural Networks with PyTorch",
     issuer: "Coursera",
-    image: "/images/My-Certifications/Deep-Learning/advanced-pytorch_applications.png",
-    link: "/images/My-Certifications/Deep-Learning/advanced-pytorch_applications.png"
+    image: "/images/My-Certifications/advanced_pytorch_applications.png",
+    link: "/images/My-Certifications/advanced_pytorch_applications.png"
   },
   // AWS Certificates
   {
     id: 11,
     title: "AWS Cloud Practitioner Essentials",
     issuer: "Amazon Web Services",
-    image: "/images/My-Certifications/AWS-Cloud-Practitioner/AWS-Certification.png",
-    link: "/images/My-Certifications/AWS-Cloud-Practitioner/AWS-Certification.png"
+    image: "/images/My-Certifications/aws_cloud_practitioner_essentials.png",
+    link: "/images/My-Certifications/aws_cloud_practitioner_essentials.png"
   },
   {
     id: 12,
     title: "AWS Cloud Technical Essentials",
     issuer: "Amazon Web Services",
-    image: "/images/My-Certifications/AWS-Cloud-Practitioner/cloud-technical-AWS.png",
-    link: "/images/My-Certifications/AWS-Cloud-Practitioner/cloud-technical-AWS.png"
+    image: "/images/My-Certifications/aws_cloud_tehnical_essentials.png",
+    link: "/images/My-Certifications/aws_cloud_tehnical_essentials.png"
   },
   {
     id: 13,
-    title: "AWS Exam Prep - Cloud Practitioner",
+    title: "AWS Certified Cloud Practitioner - Exam Prep",
     issuer: "Amazon Web Services",
-    image: "/images/My-Certifications/AWS-Cloud-Practitioner/examprep-AWS.png",
-    link: "/images/My-Certifications/AWS-Cloud-Practitioner/examprep-AWS.png"
+    image: "/images/My-Certifications/aws_exam_prep.png",
+    link: "/images/My-Certifications/aws_exam_prep.png"
   },
   // Other Certificates
   {
     id: 14,
-    title: "NPTEL - Introduction to IoT",
+    title: "Introduction to Internet of Things",
     issuer: "NPTEL",
-    image: "/images/My-Certifications/NPTEL/Nptel_intro_to_IOT.png",
-    link: "/images/My-Certifications/NPTEL/Nptel_intro_to_IOT.png"
+    image: "/images/My-Certifications/nptel_intro_to_iot.png",
+    link: "/images/My-Certifications/nptel_intro_to_iot.png"
   },
   {
     id: 15,
-    title: "NPTEL - Theory of Computation",
+    title: "Theory of Computation",
     issuer: "NPTEL",
-    image: "/images/My-Certifications/NPTEL/nptel_theory_of_computation.png",
-    link: "/images/My-Certifications/NPTEL/nptel_theory_of_computation.png"
+    image: "/images/My-Certifications/nptel_theory_of_computation.png",
+    link: "/images/My-Certifications/nptel_theory_of_computation.png"
   },
   {
     id: 16,
-    title: "EFSET English Certificate",
+    title: "EF SET English Certificate",
     issuer: "EF Standard English Test",
-    image: "/images/My-Certifications/EFSET-English/EFSET-English-Certification.png",
-    link: "/images/My-Certifications/EFSET-English/EFSET-English-Certification.png"
+    image: "/images/My-Certifications/efset_english_certificate.png",
+    link: "/images/My-Certifications/efset_english_certificate.png"
   },
   {
     id: 17,
-    title: "Pythonic Sprint",
+    title: "Pythonic Sprint Certificate",
     issuer: "IIT Madras",
-    image: "/images/My-Certifications/Pythonic-Sprint-IITM/Certificate.png",
-    link: "/images/My-Certifications/Pythonic-Sprint-IITM/Certificate.png"
+    image: "/images/My-Certifications/pythonic_sprint_certificate.png",
+    link: "/images/My-Certifications/pythonic_sprint_certificate.png"
   },
   {
     id: 18,
-    title: "IITM BS Degree - Topper Badges",
+    title: "IIT Madras BS Degree - Topper Badges",
     issuer: "IIT Madras",
-    image: "/images/My-Certifications/IITM-BS-Degree-Topper-Badges/Topper-Badges.png",
-    link: "/images/My-Certifications/IITM-BS-Degree-Topper-Badges/Topper-Badges.png"
+    image: "/images/My-Certifications/iitm_topper_badges.png",
+    link: "/images/My-Certifications/iitm_topper_badges.png"
   }
 ];
 
