@@ -1,0 +1,67 @@
+1)First paper presentation
+date: 21/12/2023
+I won first place in  paper presentation held at saveetha engineering college conducted by department of Mathematics on December 21 ,2023,
+
+
+
+
+
+2) hackhustle
+
+date: 08/11/2024 && 09/11/2024
+
+https://github.com/hiru-viru/traffic-men
+
+ Hack Hustle 2024 hosted by Tech Society from Saveetha SEC , a thrilling 24-hour hackathon based on Machine Learning, and what an experience it was! 🖥️💡
+
+Our project aimed to revolutionize public transportation with an AI-driven scheduler and optimizer. Working with an amazing team—Nijeesh NJ & Myself who shaped our USP, Gautham Krishna who developed the robust ML model, and Kishore B who created the web platform to host it—we embarked on a journey of relentless innovation and problem-solving. 🌐🚌
+
+Facing challenges like staying up all night and fetching our dataset in the wee hours, we powered through using ML algorithms such as Networkx, gradient boosting, and several other models and simulation tools. The midnight DJ hour was a memorable highlight that kept our spirits high! 
+
+
+
+
+3) Code-JigSaw
+date: 11/10/2025
+
+I’m thrilled to share that the Code Jigsaw Challenge concluded successfully, bringing together some of the most enthusiastic and talented minds in coding and problem-solving.
+
+This event was all about logic, collaboration, and creativity — and it was inspiring to see participants approach each challenge with such energy and innovation.
+
+A special note of appreciation to my incredible teammates HARINI RAJA and Nalini Panneerselvam for their constant support, teamwork, and dedication throughout the planning and execution of the event. Your efforts truly made this journey smooth and impactful. 🙌
+
+
+4)Gen-ai versity
+
+https://github.com/hiru-viru/M-A_analysis_rag 
+DATE: 25/10/2025
+
+GenAiVersity Hackathon 2025
+In October, Team Zero Vector from Saveetha Engineering College travelled all the way from Chennai to Madhapur, Hyderabad to participate in the GenAIVersity 24-hour Hackathon. Among 200+ participating teams, we were proud to be shortlisted into the Top 40 — a motivating milestone for all of us.
+💡 Our Project: M&A Agent
+We built M&A Agent, an AI-powered tool designed to streamline M&A due-diligence analysis using a Retrieval-Augmented Generation (RAG) pipeline.
+ Key features include:
+📄 Document upload & intelligent parsing
+💬 Chat-based enquiry system with grounded responses
+🧪 Evaluation dashboard for accuracy, compliance and risk assessment
+
+
+
+
+5)Hack.io
+ 
+DATE: 05/11/2025
+https://github.com/hiru-viru/skil-sync-full
+
+TEAM ZERO VECTOR  got shortlisted in top 40 teams and went to KSSEM , bangalore to participate in national level hackathon . Built an  fullstack application to assist recruitment process for hr and candidates using Agentic ai and Vector database and reranking
+
+
+
+6)SIH 2025 finals
+date: 08/12/2025
+
+https://github.com/hiru-viru/meru-coders
+Smart India Hackathon finals 2025 is a national-level, 36‑hour product development competition where student teams build solutions for real problem statements from ministries, industry and institutions, under themes like Smart Education, healthcare, agriculture, smart cities and more
+
+we built Chandas‑AI – Chandas Identifier” (Problem Statement ID SIH25158, Smart Education, Software category), targets the challenge of automatically identifying the chandas (metrical pattern) of any given Sanskrit shloka, a task traditionally done manually using Acharya Pingala’s Chandashastra and complex prosody rules.
+
