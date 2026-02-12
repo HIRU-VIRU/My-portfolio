@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect } from "react";
 import { config } from "../config";
 import { Link } from "react-router-dom";
+import { FaGithub } from "react-icons/fa";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -81,6 +82,19 @@ const Work = () => {
                   </div>
                   <h4>Tools and features</h4>
                   <p>{project.technologies}</p>
+                  
+                  <div className="work-actions">
+                    <a 
+                      href={project.github} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="work-github-link"
+                      data-cursor="disable"
+                    >
+                      <FaGithub />
+                      GitHub
+                    </a>
+                  </div>
                 </div>
                 <WorkImage image={project.image} alt={project.title} />
               </div>

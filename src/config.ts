@@ -61,8 +61,9 @@ export const config = {
                 "/images/timeline/hackhustle/1731429752487.jpeg",
                 "/images/timeline/hackhustle/1731429754836.jpeg",
                 "/images/timeline/hackhustle/1731429757254.jpeg",
-                "/images/timeline/hackhustle/1731429757381.jpeg",
+                "/images/timeline/hackhustle/image.png",
                 "/images/timeline/hackhustle/1731431232139.jpeg"
+
             ]
         },
         {
@@ -121,7 +122,8 @@ export const config = {
                 "/images/timeline/SIH/1763828416005.jpeg",
                 "/images/timeline/SIH/88fc22d2-522b-4463-a605-ac84f08ba5fa.jpeg",
                 "/images/timeline/SIH/97f4e94c-8294-4701-bb8a-3d76c5d051c3.jpeg",
-                "/images/timeline/SIH/f5609c70-d169-42bc-b88e-ccd7666bfc05.jpeg"
+                "/images/timeline/SIH/f5609c70-d169-42bc-b88e-ccd7666bfc05.jpeg",
+                "/images/timeline/SIH/image.png"
             ]
         }
     ],
@@ -133,7 +135,7 @@ export const config = {
             technologies: "FastAPI, Google Gemini 2.5, ChromaDB, React, PostgreSQL",
             image: "/images/projects/skill-sync.png",
             description: "AI-powered resume screening that eliminates bias and saves 98% of recruitment time. Anonymized resume analysis with RAG system processes 500 applicants in 90 seconds with 89% better accuracy than manual screening. Enterprise-grade multi-LLM backup with automatic API rotation.",
-            github: "https://github.com/hiru-viru/skil-sync-full",
+            github: "https://github.com/HIRU-VIRU/skil-sync-fullstack",
             tags: ["RAG", "AI", "HR Tech", "FastAPI", "React"]
         },
         {
@@ -153,7 +155,7 @@ export const config = {
             technologies: "LangGraph, OpenAI GPT-4, ChromaDB, LangChain, DeepEval",
             image: "/images/projects/m-a-rag-agent.png",
             description: "Enterprise-grade agentic RAG system processing 10,000+ financial, legal, and operational documents for M&A analysis. Reduces due diligence from 6 months to 2 hours (99% faster). Multi-agent orchestration with specialized Financial, Legal, and Operational agents.",
-            github: "https://github.com/hiru-viru/M-A_analysis_rag",
+            github: "https://github.com/HIRU-VIRU/M-A_analysis_rag",
             tags: ["Agentic AI", "RAG", "Finance", "LangGraph", "GPT-4"]
         },
         {
@@ -173,7 +175,7 @@ export const config = {
             technologies: "Chrome Built-in AI, Gemini Nano, JavaScript, Manifest V3",
             image: "/images/projects/mind-link.png",
             description: "Chrome extension using 4 Built-in AI APIs (Prompt, Summarizer, Rewriter, Translator) for multi-tier phishing detection. On-device AI with Gemini Nano protects elderly users from scams. Analyzes domains, text, and screenshots to detect lookalike sites, urgency scams, and hidden fees in T&C.",
-            github: "https://github.com/HIRU-VIRU/mind-link",
+            github: "https://github.com/HIRU-VIRU/Mind-Link",
             tags: ["Chrome Extension", "AI Safety", "Gemini Nano", "Privacy"]
         },
         {
@@ -193,7 +195,7 @@ export const config = {
             technologies: "FastAPI, LangGraph, React, PostgreSQL, Redis, MinIO",
             image: "/images/projects/verify-x-ai.png",
             description: "Multi-agent background verification platform that reduces verification time from 20 days to 5 seconds. 6 specialized AI agents running in parallel verify identity, employment, documents, and detect fraud. P95 latency < 120s with 97% confidence scores. Mock DigiLocker APIs for hackathon demo.",
-            github: "https://github.com/HIRU-VIRU/verify-x-ai",
+            github: "https://github.com/HIRU-VIRU/VerifyX-AI",
             tags: ["Multi-Agent", "HR Tech", "FastAPI", "React", "LangGraph"]
         },
         {
@@ -203,7 +205,7 @@ export const config = {
             technologies: "Node.js, TypeScript, Google Gemini, MCP SDK",
             image: "/images/projects/neutralis-ai.png",
             description: "MCP server providing AI ethics oversight, confirmation bias detection, and critical thinking analysis for AI conversations. Turns AI assistants into philosophical sparring partners that challenge user thinking. Weighted pattern recognition learns from ethical concerns for intelligent oversight.",
-            github: "https://github.com/HIRU-VIRU/neutralis-ai",
+            github: "https://github.com/HIRU-VIRU/Neutralis-AI",
             tags: ["AI Ethics", "MCP", "TypeScript", "Gemini", "Critical Thinking"]
         },
         {
@@ -223,7 +225,7 @@ export const config = {
             technologies: "Flask, REST API, Python, Tesseract OCR, Google Vision",
             image: "/images/projects/chandas-ai.png",
             description: "SIH 2025 Finalist - Production-ready Sanskrit prosody analysis system with 100% accuracy and 1,920 meter database (largest digital collection). AI-powered chandas identification using Acharya Pingala's Chandashastra with 7-level confidence scoring, word boundary preservation, and multi-input support (text/image/audio).",
-            github: "https://github.com/hiru-viru/meru-coders",
+            github: "https://github.com/HIRU-VIRU/meru-coders",
             tags: ["SIH 2025", "Sanskrit", "AI Analysis", "REST API", "OCR"]
         },
         {

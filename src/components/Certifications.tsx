@@ -27,8 +27,8 @@ const certificates: Certificate[] = [
     id: 2,
     title: "Natural Language Processing Specialization",
     issuer: "DeepLearning.AI",
-    image: "/images/My-Certifications/Natural -Language-Processing/Natural_langage_Processing_career_certificate.png",
-    link: "/images/My-Certifications/Natural -Language-Processing/Natural_langage_Processing_career_certificate.png"
+    image: "/images/My-Certifications/Natural-Language-Processing/Natural_langage_Processing_career_certificate.png",
+    link: "/images/My-Certifications/Natural-Language-Processing/Natural_langage_Processing_career_certificate.png"
   },
   {
     id: 3,
@@ -42,37 +42,37 @@ const certificates: Certificate[] = [
     id: 4,
     title: "NLP - Classification & Vector Spaces",
     issuer: "DeepLearning.AI",
-    image: "/images/My-Certifications/Natural -Language-Processing/NLP_with_classifications_vector_spaces.png",
-    link: "/images/My-Certifications/Natural -Language-Processing/NLP_with_classifications_vector_spaces.png"
+    image: "/images/My-Certifications/Natural-Language-Processing/NLP_with_classifications_vector_spaces.png",
+    link: "/images/My-Certifications/Natural-Language-Processing/NLP_with_classifications_vector_spaces.png"
   },
   {
     id: 5,
     title: "NLP - Probabilistic Models",
     issuer: "DeepLearning.AI",
-    image: "/images/My-Certifications/Natural -Language-Processing/NLP_with_probablistic_models.png",
-    link: "/images/My-Certifications/Natural -Language-Processing/NLP_with_probablistic_models.png"
+    image: "/images/My-Certifications/Natural-Language-Processing/NLP_with_probablistic_models.png",
+    link: "/images/My-Certifications/Natural-Language-Processing/NLP_with_probablistic_models.png"
   },
   {
     id: 6,
     title: "NLP - Sequence Models",
     issuer: "DeepLearning.AI",
-    image: "/images/My-Certifications/Natural -Language-Processing/NLP_with_sequence_models.png",
-    link: "/images/My-Certifications/Natural -Language-Processing/NLP_with_sequence_models.png"
+    image: "/images/My-Certifications/Natural-Language-Processing/NLP_with_sequence_models.png",
+    link: "/images/My-Certifications/Natural-Language-Processing/NLP_with_sequence_models.png"
   },
   {
     id: 7,
     title: "NLP - Attention Models",
     issuer: "DeepLearning.AI",
-    image: "/images/My-Certifications/Natural -Language-Processing/NLP_with_attention_models.png",
-    link: "/images/My-Certifications/Natural -Language-Processing/NLP_with_attention_models.png"
+    image: "/images/My-Certifications/Natural-Language-Processing/NLP_with_attention_models.png",
+    link: "/images/My-Certifications/Natural-Language-Processing/NLP_with_attention_models.png"
   },
   // Deep Learning Course Certificates
   {
     id: 8,
     title: "PyTorch - Foundation Concepts",
     issuer: "Coursera",
-    image: "/images/My-Certifications/Deep-Learning/foundation-concepts of pytorch.png",
-    link: "/images/My-Certifications/Deep-Learning/foundation-concepts of pytorch.png"
+    image: "/images/My-Certifications/Deep-Learning/foundation-concepts-of-pytorch.png",
+    link: "/images/My-Certifications/Deep-Learning/foundation-concepts-of-pytorch.png"
   },
   {
     id: 9,
@@ -100,23 +100,23 @@ const certificates: Certificate[] = [
     id: 12,
     title: "AWS Cloud Technical Essentials",
     issuer: "Amazon Web Services",
-    image: "/images/My-Certifications/AWS-Cloud-Practitioner/cloud technical AWS.png",
-    link: "/images/My-Certifications/AWS-Cloud-Practitioner/cloud technical AWS.png"
+    image: "/images/My-Certifications/AWS-Cloud-Practitioner/cloud-technical-AWS.png",
+    link: "/images/My-Certifications/AWS-Cloud-Practitioner/cloud-technical-AWS.png"
   },
   {
     id: 13,
     title: "AWS Exam Prep - Cloud Practitioner",
     issuer: "Amazon Web Services",
-    image: "/images/My-Certifications/AWS-Cloud-Practitioner/examprep AWS.png",
-    link: "/images/My-Certifications/AWS-Cloud-Practitioner/examprep AWS.png"
+    image: "/images/My-Certifications/AWS-Cloud-Practitioner/examprep-AWS.png",
+    link: "/images/My-Certifications/AWS-Cloud-Practitioner/examprep-AWS.png"
   },
   // Other Certificates
   {
     id: 14,
     title: "NPTEL - Introduction to IoT",
     issuer: "NPTEL",
-    image: "/images/My-Certifications/NPTEL/Nptel_intro to IOT.png",
-    link: "/images/My-Certifications/NPTEL/Nptel_intro to IOT.png"
+    image: "/images/My-Certifications/NPTEL/Nptel_intro_to_IOT.png",
+    link: "/images/My-Certifications/NPTEL/Nptel_intro_to_IOT.png"
   },
   {
     id: 15,
