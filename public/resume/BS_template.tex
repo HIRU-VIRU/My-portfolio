@@ -1,0 +1,169 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\usepackage{graphicx}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\begin{document}
+
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+    {\Huge \scshape Hiruthik Sudhakar} & 
+    \raisebox{0pt}[0pt][0pt]{\includegraphics[height=1.4cm]{image.png}} \\
+\end{tabular*}
+\vspace{1pt}
+\small \raisebox{-0.1\height}\faPhone\ +91-7406295780 ~ 
+    \href{mailto:xmyhiruthik2020@gmail.com}{\raisebox{-0.2\height}\faEnvelope\ \underline{xmyhiruthik2020@gmail.com}} ~ 
+    \href{https://linkedin.com/in/hiruthik-sudhakar/}{\raisebox{-0.2\height}\faLinkedin\ \underline{linkedin.com/in/hiruthik-sudhakar}} ~
+    \href{https://github.com/HIRU-VIRU}{\raisebox{-0.2\height}\faGithub\ \underline{github.com/HIRU-VIRU}} ~
+    \href{https://my-portfolio-dusky-ten.vercel.app/}{\raisebox{-0.2\height}\faGlobe\ \underline{my-portfolio-dusky-ten.vercel.app}}
+    
+\vspace{-8pt}
+
+\section{Professional Summary}
+\small{Dual degree student specializing in Data Science and AI \& Machine Learning with hands-on experience building end-to-end data and ML pipelines. Proficient in Python and AWS services (Glue, EC2, Athena), FastAPI, PyTorch, and MLOps including model training, optimization, deployment, serving, and versioning. Proven ability in autonomous work and rapid prototyping of production-grade, high-impact ML systems.}
+
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Indian Institute of Technology, Madras}{May 2024 -- Sept 2028}
+      {Bachelor of Science in Data Science}{}
+    \resumeSubheading
+      {Saveetha Engineering College}{June 2023 -- Sept 2027}
+      {Bachelor of Technology in Artificial Intelligence \& Machine Learning}{}
+  \resumeSubHeadingListEnd
+
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Inplant Training}{July 2023}
+      {one9communications, Bangalore}{}
+      \resumeItemListStart
+        \resumeItem{Acquired hands-on experience in enterprise IT infrastructure, LAN/WAN setup, and cloud-integrated networking systems.}
+        \resumeItem{Collaborated with network engineers to troubleshoot and optimize connectivity and performance.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
+\section{Projects}
+  \resumeSubHeadingListStart  
+    \resumeProjectHeading
+      {\textbf{\href{https://github.com/HIRU-VIRU/skil-sync-fullstack/}{SkilSync Fullstack Platform}} $|$ MERN Stack, Node.js, React, MongoDB}{}
+      \resumeItemListStart
+        \resumeItem{Architected a full-stack platform with resume parsing, vector database handling (ChromaDB/FAISS)}
+        \resumeItem{Implemented AI-based ranking engine with inference-driven matching algorithm }
+        \resumeItem{Developed modular REST APIs with role-based access control, real-time dashboards, and analytics .}
+      \resumeItemListEnd
+    \vspace{-13pt}
+
+    \resumeProjectHeading
+      {\textbf{\href{https://github.com/HIRU-VIRU/M-A_analysis_rag}{M\&A Due Diligence Intelligence System - Agentic RAG Pipeline}} $|$ LangGraph, GPT-4, ChromaDB, Python}{}
+      \resumeItemListStart
+        \resumeItem{Built enterprise-grade agentic RAG system processing 10,000+ financial, documents, reducing analysis time drastically.}
+        \resumeItem{Architected multi-agent orchestration using LangGraph with specialized Financial, Legal, and Operational agents.}
+        \resumeItem{Engineered ETL pipeline with ChromaDB for semantic chunking, embedding, and vector retrieval.}
+      \resumeItemListEnd
+    \vspace{-13pt}
+
+    \resumeProjectHeading
+      {\textbf{\href{https://github.com/HIRU-VIRU/traffic-men}{TrafficMen - Public Transport Scheduler}} $|$ Python, Django, REST APIs, Real-time Data Processing}{}
+      \resumeItemListStart
+        \resumeItem{Developed real-time public transport scheduling system based on city traffic indices and dynamic route optimization.}
+        \resumeItem{Built data ingestion pipeline to process traffic data streams and generate optimized schedules.}
+        \resumeItem{Implemented RESTful APIs for seamless integration with mobile and web applications.}
+      \resumeItemListEnd
+    \vspace{-9pt}
+  \resumeSubHeadingListEnd
+
+
+  \section{Technical Skills}
+ \resumeItemListStart
+    \resumeItem{\textbf{Programming Languages:} Python, Java, C, SQL, Scala}
+    \resumeItem{\textbf{Cloud \& Data Engineering:} AWS (EC2, S3, Lambda), PySpark, Apache Spark, ETL Pipelines, Data Warehousing, Batch \& Real-time Processing}
+    \resumeItem{\textbf{Databases \& Storage:} MySQL, PostgreSQL, SQLite, ChromaDB, FAISS, Vector Databases, Data Lakes, Lakehouses}
+    \resumeItem{\textbf{AI/ML Frameworks:} PyTorch, LangChain, LangGraph, Retrieval-Augmented Generation (RAG), Agentic AI, OpenAI GPT-4, Multi-Agent Systems}
+    \resumeItem{\textbf{Web \& Application Development:} Django, Flask, Spring Boot, REST APIs, Microservices Architecture, Streamlit}
+    \resumeItem{\textbf{DevOps \& Tools:} Git, Linux, Docker, CI/CD, Apache Airflow, UiPath Automation}
+    \resumeItem{\textbf{Data Processing:} Pandas, Document parsing (PDF, DOCX, XLSX), Unstructured data handling, Data transformation}
+    \resumeItem{\textbf{Certifications:} AWS Cloud Practitioner Essentials, AWS Cloud Technical Essentials, PyTorch: Foundations \& Core Concepts, Building and Training Neural Networks, UiPath Student Automation Developer Associate, Foundation Level Completion - IITM BS Degree, Pythonic Sprint (IITM), CompTIA A+ 220-1002, EF SET English Certificate (C1), Natural Language Processing - a DeepLearning.AI Specialization }
+ \resumeItemListEnd
+
+
+\section{Achievements}
+\resumeItemListStart
+  
+  \resumeItem{Smart India Hackathon 2025 Finalist}
+  \resumeItem{Participant at Shaastra Techathon, IIT Madras}
+  \resumeItem{First Place in paper presentation on "Influence of Mathematics in Engineering"}
+  \resumeItem{Shortlisted in Top 10 Teams at Devfolio's Hack-Hustle, Saveetha Engineering College}
+\resumeItemListEnd
+
+\end{document}

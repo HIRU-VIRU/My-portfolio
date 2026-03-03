@@ -12,7 +12,24 @@ export const config = {
     },
     about: {
         title: "About Me",
-        description: "Dual-degree student in Data Science (IIT Madras) and AI/ML (Saveetha Engineering College). Passionate about building intelligent, real-world AI systems using automation and modern architectures. Interested in multi-agent orchestration, RAG systems, cybersecurity, AI ethics, and the fusion of ancient knowledge with modern AI. Three-time National Hackathon Finalist who enjoys solving complex problems and shipping production-ready solutions."
+        points: [
+            {
+                text: "Dual-degree student pursuing Data Science (IIT Madras) and AI/ML Engineering (Saveetha)",
+                icon: "education"
+            },
+            {
+                text: "Building intelligent AI systems with modern architectures and automation",
+                icon: "code"
+            },
+            {
+                text: "Three-time National Hackathon Finalist",
+                icon: "trophy"
+            },
+            {
+                text: "Passionate about agentic AI, RAG systems, and AI ethics",
+                icon: "brain"
+            }
+        ]
     },
     education: [
         {
@@ -21,6 +38,7 @@ export const config = {
             period: "May 2024 - Sept 2028",
             cgpa: "8.46",
             link: "https://app.onlinedegree.iitm.ac.in/student/24F2001283#",
+            logo: "/images/iitm_logo.jpeg",
             highlights: [
                 "Foundation Level Completion - IITM BS Degree",
                 "Currently in Diploma level, will enter Degree level next term"
@@ -30,7 +48,8 @@ export const config = {
             degree: "Bachelor of Technology in AI & ML",
             institution: "Saveetha Engineering College",
             period: "Sept 2023 - May 2027",
-            cgpa: "8.78",
+            cgpa: "8.64",
+            logo: "/images/sec_logo.jpeg",
             highlights: [
                 "Finalist in Smart India Hackathon 2025 (SIH 2025)",
                 "Top 10 Teams in Devfolio's Hack-Hustle",
@@ -237,6 +256,26 @@ export const config = {
             description: "Interactive gamified platform for mastering Sanskrit meters through challenges, quizzes, and achievements. Built on the Chandas AI engine with game mechanics, progress tracking, leaderboards, and adaptive difficulty. Makes learning classical Sanskrit prosody engaging through interactive lessons and pattern recognition games.",
             github: "https://github.com/HIRU-VIRU/Chandas-game",
             tags: ["EdTech", "Gamification", "Sanskrit", "Interactive", "Learning"]
+        },
+        {
+            id: 12,
+            title: "SafeSight AI - Construction Safety Monitor",
+            category: "Computer Vision | PPE Violation Detection",
+            technologies: "Python, YOLO, Flask, React, SQLite, OpenCV, Vite",
+            image: "/images/projects/safe-sight-ai.png",
+            description: "Production-grade computer vision platform detecting PPE violations on construction sites in real-time. YOLO-based inference on live camera feeds with centroid tracking, IoU-based PPE assignment per person, async violation logger with evidence images, SQLite analytics, and a React + Recharts dashboard with multi-stream support.",
+            github: "https://github.com/hiru-viru/safesight-ai",
+            tags: ["Computer Vision", "YOLO", "Safety", "Flask", "React"]
+        },
+        {
+            id: 13,
+            title: "SmartVision - Seafood Quality AI",
+            category: "Computer Vision | Export Compliance & Vendor Grading",
+            technologies: "FastAPI, YOLO, Gemini 2.0 Flash, Next.js, Vertex AI, Ngrok",
+            image: "/images/projects/smartvision.png",
+            description: "Edge-to-Cloud AI pipeline for seafood export compliance and vendor grading using a dual YOLO vision stack and Google Gemini 2.0 Flash on Vertex AI. Runs on a local edge GPU (NVIDIA MX550) tunnelled via Ngrok to a Vercel-hosted Next.js frontend. Generates formal export compliance reports with freshness and spoilage analysis.",
+            github: "https://github.com/hiru-viru/smartvision",
+            tags: ["Computer Vision", "YOLO", "Gemini", "Edge AI", "FastAPI"]
         }
     ],
     contact: {

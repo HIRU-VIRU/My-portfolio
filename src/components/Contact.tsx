@@ -50,6 +50,22 @@ const Contact = () => {
       "-=0.4"
     );
 
+    // Animate Let's Talk button
+    contactTimeline.fromTo(
+      ".lets-talk-btn",
+      {
+        opacity: 0,
+        y: 30,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "power3.out",
+      },
+      "-=0.3"
+    );
+
     // Clean up
     return () => {
       contactTimeline.kill();
@@ -111,6 +127,17 @@ const Contact = () => {
               <MdCopyright /> {new Date().getFullYear()}
             </h5>
           </div>
+        </div>
+        <div className="contact-cta">
+          <a
+            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${config.contact.email}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="lets-talk-btn"
+            data-cursor="disable"
+          >
+            Let's Talk
+          </a>
         </div>
       </div>
     </div>

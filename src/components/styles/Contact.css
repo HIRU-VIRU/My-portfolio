@@ -58,6 +58,36 @@ a.contact-social {
   gap: 8px;
   opacity: 0.5;
 }
+
+.contact-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.lets-talk-btn {
+  display: inline-block;
+  padding: 18px 50px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #0b080c;
+  background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 4px 20px rgba(0, 255, 136, 0.3);
+  text-decoration: none;
+}
+
+.lets-talk-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 255, 136, 0.5);
+  background: linear-gradient(135deg, #00ff88 0%, #00ff88 100%);
+  color: #0b080c;
+}
 @media only screen and (min-width: 600px) {
   .contact-section h3 {
     font-size: 40px;

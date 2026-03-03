@@ -1,0 +1,167 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\usepackage{graphicx}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\begin{document}
+
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+    {\Huge \scshape Hiruthik Sudhakar} & 
+    \raisebox{-0.8cm}[0pt][0pt]{\includegraphics[height=1.4cm]{image.png}} \\
+\end{tabular*}
+\vspace{1pt}
+\small \raisebox{-0.1\height}\faPhone\ +91-7406295780 ~ 
+    \href{mailto:hiruthiksudhakar18@gmail.com}{\raisebox{-0.2\height}\faEnvelope\ \underline{hiruthiksudhakar18@gmail.com}} ~ 
+    \href{https://linkedin.com/in/hiruthik-sudhakar/}{\raisebox{-0.2\height}\faLinkedin\ \underline{linkedin.com/in/hiruthik-sudhakar}} ~
+    \href{https://github.com/HIRU-VIRU}{\raisebox{-0.2\height}\faGithub\ \underline{github.com/HIRU-VIRU}} ~
+    \href{https://my-portfolio-dusky-ten.vercel.app/}{\raisebox{-0.2\height}\faGlobe\ \underline{my-portfolio-dusky-ten.vercel.app}}
+    
+\vspace{-8pt}
+
+\section{Professional Summary}
+\small{Dual degree student in Data Science (IIT Madras) and AI \& Machine Learning (Saveetha Engineering College) with hands-on experience building ML pipelines across regression, computer vision, and LLM-driven systems. Proficient in Python, PyTorch, scikit-learn, and YOLO; experienced in agentic AI pipelines, RAG architectures, and iterative model refinement. Passionate about applying ML methods to high-throughput scientific discovery and screening problems.}
+
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Indian Institute of Technology, Madras}{May 2024 -- Sept 2027}
+      {Bachelor of Science in Data Science}{}
+    \resumeSubheading
+      {Saveetha Engineering College}{Sept 2023 -- Sept 2027}
+      {Bachelor of Technology in Artificial Intelligence \& Machine Learning}{}
+  \resumeSubHeadingListEnd
+
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Inplant Training}{July 2023}
+      {one9communications}{Bangalore}
+      \resumeItemListStart
+        \resumeItem{Gained hands-on exposure to enterprise IT infrastructure, including LAN/WAN setup, IP configuration, and network device management (routers, switches, firewalls)}
+        \resumeItem{Understood scalability and security aspects of cloud-integrated networking systems supporting business communications}
+        \resumeItem{Collaborated with network engineers to troubleshoot real-time connectivity issues and optimize network performance}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+\vspace{-16pt}
+
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{\href{https://github.com/hiru-viru/safesight-ai}{SafeSight AI -- Real-Time PPE Violation Detection}} $|$ \emph{Python, YOLO, OpenCV, Flask, React, SQLite}}{2026}
+          \resumeItemListStart
+            \resumeItem{Trained a 6-class YOLO model on custom PPE dataset and deployed real-time inference on live multi-camera feeds}
+            \resumeItem{Built centroid tracker with persistent IDs and IoU-based PPE assignment to flag per-person violations across frames}
+            \resumeItem{Served violation analytics via Flask REST API consumed by a React/Recharts dashboard with SQLite-backed storage}
+          \resumeItemListEnd 
+          \vspace{-13pt}
+      \resumeProjectHeading
+          {\textbf{\href{https://github.com/HIRU-VIRU/M-A_analysis_rag}{M\&A Due Diligence Intelligence System -- Agentic RAG Pipeline}} $|$ \emph{LangGraph, GPT-4, ChromaDB, Python}}{Oct 2025}
+          \resumeItemListStart
+            \resumeItem{Processed 10,000+ documents with transformer embeddings, cutting due-diligence time from 6 months to 2 hours}
+            \resumeItem{Orchestrated three specialized LLM agents via LangGraph with confidence-score-driven iterative query refinement}
+            \resumeItem{Built ChromaDB ETL pipeline for semantic chunking and retrieval, achieving 42\% higher risk-detection accuracy}
+          \resumeItemListEnd
+          \vspace{-13pt}
+      \resumeProjectHeading
+          {\textbf{\href{https://github.com/HIRU-VIRU/skil-sync-fullstack}{SkillSync -- AI-Powered Candidate Screening System}} $|$ \emph{FastAPI, Google Gemini 2.5, ChromaDB, PyTorch, React}}{2025}
+          \resumeItemListStart
+            \resumeItem{Built regression-based scoring engine over resume feature vectors with 89\% better accuracy than keyword-search baselines}
+            \resumeItem{Deployed semantic vector search (ChromaDB/FAISS) with multi-LLM failover, screening 500 candidates in 90 seconds}
+            \resumeItem{Designed modular inference pipeline to allow rapid swapping of scoring models without changing application logic}
+          \resumeItemListEnd 
+          \vspace{-13pt}
+    \resumeSubHeadingListEnd
+
+
+  \section{Technical Skills}
+ \resumeItemListStart
+    \resumeItem{\textbf{Programming Languages:} Python, Java, C, SQL, Scala}
+    \resumeItem{\textbf{ML \& Deep Learning:} PyTorch, scikit-learn, XGBoost, regression \& ensemble models, CNNs, YOLO (v8/v11), OpenCV, image processing, object detection \& tracking}
+    \resumeItem{\textbf{LLMs \& Agentic AI:} LangChain, LangGraph, OpenAI GPT-4, Google Gemini, RAG, Prompt Engineering, Multi-Agent Orchestration}
+    \resumeItem{\textbf{Databases \& Storage:} MySQL, PostgreSQL, SQLite, ChromaDB, FAISS, Vector Databases}
+    \resumeItem{\textbf{Cloud \& MLOps:} AWS (EC2, S3, Lambda), Docker, Git, CI/CD, model versioning \& serving, FastAPI, Flask}
+    \resumeItem{\textbf{Data Processing:} NumPy, Pandas, SciPy, Matplotlib, data augmentation pipelines, ETL, unstructured data handling}
+    \resumeItem{\textbf{Certifications:} PyTorch: Foundations \& Core Concepts, Building and Training Neural Networks, NLP Specialization (DeepLearning.AI), AWS Cloud Practitioner Essentials, AWS Cloud Technical Essentials, Foundation Level -- IITM BS Degree, EF SET English C1}
+ \resumeItemListEnd
+
+
+\section{Achievements}
+\resumeItemListStart
+  \resumeItem{\textbf{Finalist SIH 2025} Smart India Hackathon 2025}
+  \resumeItem{Shortlisted among \textbf{Top 10 Teams} in Devfolio's Hack-Hustle, Saveetha Engineering College}
+  \resumeItem{Participated in \textbf{Shaastra Techathon, IIT Madras}}
+  \resumeItem{Secured \textbf{First Place} for paper presentation on "Influence of Mathematics in Engineering"}
+\resumeItemListEnd
+
+
+\end{document}

@@ -51,9 +51,18 @@ const WhatIDo = () => {
           >
             <div className="edu-card-accent"></div>
             <div className="edu-card-content">
+              <div className="edu-header">
+                {edu.logo && (
+                  <div className="edu-logo">
+                    <img src={edu.logo} alt={`${edu.institution} logo`} />
+                  </div>
+                )}
+                <div className="edu-title-section">
+                  <h3>{edu.degree}</h3>
+                  <h4>{edu.institution}</h4>
+                </div>
+              </div>
               <span className="edu-period">{edu.period}</span>
-              <h3>{edu.degree}</h3>
-              <h4>{edu.institution}</h4>
               {edu.cgpa && <p className="edu-cgpa">CGPA: {edu.cgpa}</p>}
               <ul className="edu-highlights">
                 {edu.highlights.map((h, i) => (

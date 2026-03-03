@@ -46,7 +46,70 @@
   letter-spacing: 4px;
   font-weight: 400;
   color: var(--accentColor);
-  margin-bottom: 15px;
+  margin-bottom: 30px;
+}
+
+.about-points {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.about-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.about-point:nth-child(1) { animation-delay: 0.1s; }
+.about-point:nth-child(2) { animation-delay: 0.2s; }
+.about-point:nth-child(3) { animation-delay: 0.3s; }
+.about-point:nth-child(4) { animation-delay: 0.4s; }
+.about-point:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  color: var(--accentColor);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.about-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke: var(--accentColor);
+  transition: transform 0.3s ease;
+}
+
+.about-point:hover .about-icon svg {
+  transform: scale(1.15);
+}
+
+.about-text {
+  flex: 1;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 26px;
+  letter-spacing: 0.3px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .about-me p {
@@ -55,6 +118,7 @@
   line-height: 26px;
   letter-spacing: 0.5px;
   word-spacing: 2px;
+  white-space: pre-line;
 }
 
 .about-me .split-word {
@@ -77,6 +141,14 @@
     font-size: 22px;
     letter-spacing: 6px;
   }
+  .about-text {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  .about-icon {
+    width: 32px;
+    height: 32px;
+  }
   .about-me p {
     font-size: 28px;
     line-height: 32px;
@@ -91,6 +163,14 @@
   .about-me h3 {
     font-size: 25px;
     letter-spacing: 7px;
+  }
+  .about-text {
+    font-size: 22px;
+    line-height: 30px;
+  }
+  .about-icon {
+    width: 36px;
+    height: 36px;
   }
   .about-me p {
     font-size: 33px;
@@ -121,12 +201,30 @@
     padding: 0px;
     width: 50%;
   }
+  .about-text {
+    font-size: 1.6vw;
+    line-height: 2vw;
+  }
+  .about-icon {
+    width: 2vw;
+    height: 2vw;
+    min-width: 28px;
+    min-height: 28px;
+  }
   .about-me p {
     font-size: 1.9vw;
     line-height: 2.3vw;
   }
 }
 @media only screen and (min-width: 1950px) {
+  .about-text {
+    font-size: 2.2rem;
+    line-height: 2.5rem;
+  }
+  .about-icon {
+    width: 40px;
+    height: 40px;
+  }
   .about-me p {
     font-size: 2.5rem;
     line-height: 2.7rem;

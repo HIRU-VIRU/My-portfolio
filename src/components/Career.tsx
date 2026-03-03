@@ -73,6 +73,14 @@ const Career = () => {
     setExpandedIndex(expandedIndex === index ? null : index);
   };
 
+  // Refresh ScrollTrigger after expand/collapse transition completes
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 550); // slightly after the 0.5s CSS transition
+    return () => clearTimeout(timer);
+  }, [expandedIndex]);
+
   useEffect(() => {
     const section = sectionRef.current;
     const dot = dotRef.current;
