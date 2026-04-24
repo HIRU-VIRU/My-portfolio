@@ -284,7 +284,7 @@ export const config = {
             technologies: "Next.js 14, Tailwind CSS, FastAPI, YOLOv8, ONNX, Hugging Face",
             image: "/images/projects/loomguard-ai.png",
             description: "Real-time AI-powered fabric defect detection using a custom-trained YOLOv8 model optimized for CPU via ONNX. Features a modern dark-mode industrial dashboard with HTML5 canvas bounding box overlays, x-ray vision mode, and client-side CSV export.",
-            github: "https://github.com/Git-by-Devi/LoomGuard-AI",
+            github: "https://github.com/HIRU-VIRU/LoomGuard-AI",
             tags: ["Computer Vision", "YOLOv8", "FastAPI", "Next.js", "AI"]
         },
         {
