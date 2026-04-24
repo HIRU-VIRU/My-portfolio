@@ -145,6 +145,42 @@ const certificates: Certificate[] = [
     issuer: "IIT Madras",
     image: "/images/My-Certifications/iitm_topper_badges.png",
     link: "/images/My-Certifications/iitm_topper_badges.png"
+  },
+  // HackerRank Certificates
+  {
+    id: 19,
+    title: "Java (Basic)",
+    issuer: "HackerRank",
+    image: "/images/My-Certifications/java_basic_hackerrank.png",
+    link: "/images/My-Certifications/java_basic_hackerrank.png"
+  },
+  {
+    id: 20,
+    title: "Python (Basic)",
+    issuer: "HackerRank",
+    image: "/images/My-Certifications/python_basic_hackerrank.png",
+    link: "/images/My-Certifications/python_basic_hackerrank.png"
+  },
+  {
+    id: 21,
+    title: "SQL (Basic)",
+    issuer: "HackerRank",
+    image: "/images/My-Certifications/sql_basic_hackerrank.png",
+    link: "/images/My-Certifications/sql_basic_hackerrank.png"
+  },
+  {
+    id: 22,
+    title: "SQL (Intermediate)",
+    issuer: "HackerRank",
+    image: "/images/My-Certifications/sql_intermediate_hackerrank.png",
+    link: "/images/My-Certifications/sql_intermediate_hackerrank.png"
+  },
+  {
+    id: 23,
+    title: "SQL (Advanced)",
+    issuer: "HackerRank",
+    image: "/images/My-Certifications/sql_advanced_hackerrank.png",
+    link: "/images/My-Certifications/sql_advanced_hackerrank.png"
   }
 ];
 

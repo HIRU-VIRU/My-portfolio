@@ -23,7 +23,7 @@ const Navbar = () => {
     });
 
     // Start paused
-    lenis.stop();
+    // lenis.stop();
 
     // Handle smooth scroll animation frame
     function raf(time: number) {

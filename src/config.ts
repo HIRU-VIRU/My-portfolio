@@ -276,6 +276,26 @@ export const config = {
             description: "Edge-to-Cloud AI pipeline for seafood export compliance and vendor grading using a dual YOLO vision stack and Google Gemini 2.0 Flash on Vertex AI. Runs on a local edge GPU (NVIDIA MX550) tunnelled via Ngrok to a Vercel-hosted Next.js frontend. Generates formal export compliance reports with freshness and spoilage analysis.",
             github: "https://github.com/hiru-viru/smartvision",
             tags: ["Computer Vision", "YOLO", "Gemini", "Edge AI", "FastAPI"]
+        },
+        {
+            id: 14,
+            title: "LoomGuard-AI - Fabric Defect Detection",
+            category: "Computer Vision | Industrial AI",
+            technologies: "Next.js 14, Tailwind CSS, FastAPI, YOLOv8, ONNX, Hugging Face",
+            image: "/images/projects/loomguard-ai.png",
+            description: "Real-time AI-powered fabric defect detection using a custom-trained YOLOv8 model optimized for CPU via ONNX. Features a modern dark-mode industrial dashboard with HTML5 canvas bounding box overlays, x-ray vision mode, and client-side CSV export.",
+            github: "https://github.com/Git-by-Devi/LoomGuard-AI",
+            tags: ["Computer Vision", "YOLOv8", "FastAPI", "Next.js", "AI"]
+        },
+        {
+            id: 15,
+            title: "CareerForge - AI Career Accelerator",
+            category: "Education | Career Development",
+            technologies: "AWS Bedrock, DynamoDB, S3, FastAPI, Next.js 14, OpenSearch",
+            image: "/images/projects/career-forge.png",
+            description: "Unified AI-powered career acceleration platform. Analyzes GitHub code to extract skills, generates JD-specific ATS-optimized LaTeX resumes, creates radar charts for skill gaps, and matches jobs automatically. Powered by Amazon Bedrock (Claude 3 Haiku).",
+            github: "https://github.com/HIRU-VIRU/career-forge",
+            tags: ["AWS Bedrock", "Next.js", "FastAPI", "AI", "Education"]
         }
     ],
     contact: {

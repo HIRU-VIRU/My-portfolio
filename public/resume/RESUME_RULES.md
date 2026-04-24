@@ -36,12 +36,51 @@
 
 ---
 
+## 6. Show Diversity in Project Selection
+
+**IMPORTANT:** Avoid repeatedly selecting the same projects. Aim for variety across resumes.
+
+### CareerForge Unified Platform
+The following projects were **unified into CareerForge** (AWS-based career acceleration platform):
+- **SkillSync** (AI resume screening)
+- **Job Scraper** (LinkedIn automation)
+- **LaTeX Agent** (resume generation)
+- **LearnWeave** (learning companion)
+
+**Selection Rule:**
+- If you select CareerForge, mention it as the unified platform
+- Avoid selecting 2+ CareerForge components in the same resume
+- Prioritize showing diverse problem domains (CV, EdTech, Cybersecurity, Finance, etc.)
+
+### Project Categories for Diversity
+- **Computer Vision:** SafeSight AI, SmartVision, LoomGuard AI
+- **EdTech:** LearnWeave, Chandas AI, Chandas Game
+- **HR Tech:** SkillSync
+- **Career Tools:** LaTeX Agent, Job Scraper, CareerForge
+- **Cybersecurity:** Sticky-Net, Mind Link (PhishGuard)
+- **Finance:** M&A RAG Agent
+- **AI Ethics:** Neutralis-AI
+
+**Best Practice:** Select 3 projects from different categories when possible.
+
+### Incomplete Projects (DO NOT USE)
+- **VerifyX AI** - Project not completed, never include in resumes
+
+---
+
+## Project Model Reference
+
+- All personal vision models use **YOLO26m** (not YOLOv8 or other variants).
+- Always write `YOLO26m` in project headings, bullet points, and Technical Skills — never `YOLOv8`, `YOLOv11`, or plain `YOLO`.
+
 ## Quick Checklist Before Saving Any Resume
 
 - [ ] Layout matches `template.txt` exactly
 - [ ] Exactly 3 projects selected from `projects-md/`
+- [ ] Projects show diversity (avoid selecting multiple CareerForge components)
 - [ ] Each project has exactly 3 one-liner bullets
 - [ ] No new sections added
 - [ ] GitHub URLs verified against `src/config.ts`
+- [ ] Vision model references use `YOLO26m` throughout
 - [ ] Summary is ≤ 3 lines
 - [ ] File compiles to one page
