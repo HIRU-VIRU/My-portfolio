@@ -162,9 +162,8 @@ const Career = () => {
   return (
     <div className="career-section section-container" id="career" ref={sectionRef}>
       <div className="career-container">
-        <h2>
-         <span></span>
-          <br /> Hiru's Journey
+        <h2 className="career-title">
+          Hiru's Journey
         </h2>
         <div className="career-info">
           <div className="career-timeline" ref={timelineRef}>
@@ -184,40 +183,42 @@ const Career = () => {
                 {/* The marker on the timeline */}
                 <div className="career-marker"></div>
 
-                {/* Collapsed preview */}
-                <div className="career-preview">
-                  <h4>{exp.title}</h4>
-                  <span className="career-date">{exp.date}</span>
-                  {isHighlighted && !isExpanded && (
-                    <span className="career-click-prompt">Click to view details</span>
-                  )}
-                </div>
-
-                {/* Expanded detail panel */}
-                <div className="career-detail">
-                  <div className="career-detail-text">
-                    <h4>{exp.title}</h4>
-                    <h5>{exp.event}</h5>
+                <div className="career-card">
+                  {/* Collapsed preview */}
+                  <div className="career-preview">
+                    <h4 className="career-card-title">{exp.title}</h4>
                     <span className="career-date">{exp.date}</span>
-                    <p>{exp.description}</p>
-                    {exp.github && (
-                      <a
-                        href={exp.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="career-github-link"
-                        data-cursor="disable"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        View on GitHub <MdArrowOutward />
-                      </a>
+                    {isHighlighted && !isExpanded && (
+                      <span className="career-click-prompt">Click to view details</span>
                     )}
                   </div>
-                  {exp.images.length > 0 && (
-                    <div className="career-detail-carousel">
-                      <ImageCarousel images={exp.images} />
+
+                  {/* Expanded detail panel */}
+                  <div className="career-detail">
+                    <div className="career-detail-text">
+                      <h4 className="career-card-title-expanded">{exp.title}</h4>
+                      <h5 className="career-event">{exp.event}</h5>
+                      <span className="career-date-expanded">{exp.date}</span>
+                      <p className="career-description">{exp.description}</p>
+                      {exp.github && (
+                        <a
+                          href={exp.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="career-github-link"
+                          data-cursor="disable"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          View on GitHub <MdArrowOutward />
+                        </a>
+                      )}
                     </div>
-                  )}
+                    {exp.images.length > 0 && (
+                      <div className="career-detail-carousel">
+                        <ImageCarousel images={exp.images} />
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             );

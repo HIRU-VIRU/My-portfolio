@@ -1,0 +1,288 @@
+
+
+# SGBC IIT Madras – Detailed Internship Task Repository
+
+## 1. Asynchronous ML Training Infrastructure
+
+* Designed and implemented a fully asynchronous ML training execution pipeline using Celery workers.
+* Decoupled long-running model training from synchronous API requests to prevent backend blocking.
+* Built job submission APIs that immediately return job identifiers while background workers execute training tasks.
+* Implemented centralized job lifecycle management (Queued → Running → Completed → Failed).
+* Developed APIs for querying training status, metadata, execution logs, and results.
+* Standardized asynchronous response formats across all training workflows.
+* Improved backend responsiveness under concurrent training workloads.
+
+---
+
+# 2. Asynchronous Whole Slide Image (WSI) Inference Pipeline
+
+* Converted computationally intensive WSI inference into an asynchronous distributed processing workflow.
+* Designed scalable Celery task execution for inference requests.
+* Eliminated request timeout issues caused by multi-minute inference operations.
+* Added asynchronous polling endpoints for frontend integration.
+* Optimized worker scheduling for GPU/CPU-intensive inference tasks.
+* Validated concurrent inference execution with multiple Celery workers.
+* Reduced API response latency by returning lightweight job references.
+
+---
+
+# 3. Redis-Based Async Result Management
+
+* Replaced file-system based inference result persistence with Redis-backed storage.
+* Designed deterministic Redis cache keys for predictable result lookup.
+* Eliminated filesystem dependency during async workflows.
+* Reduced disk I/O overhead.
+* Improved scalability for distributed deployments.
+* Added automatic cache expiration policies.
+* Simplified retrieval of inference outputs across multiple backend instances.
+
+---
+
+# 4. Redis-Based UI Metadata Cache
+
+* Designed Redis caching layer for frequently accessed classification model metadata.
+* Cached model dropdown information used by frontend applications.
+* Eliminated repeated database/configuration lookups.
+* Reduced frontend loading latency.
+* Improved overall UI responsiveness.
+* Implemented cache invalidation strategy for newly deployed models.
+
+---
+
+# 5. Celery Worker Performance Optimization
+
+* Benchmarked worker utilization under concurrent ML workloads.
+* Increased Celery worker concurrency while maintaining backend stability.
+* Optimized task execution throughput.
+* Validated concurrent execution of training and inference jobs.
+* Improved resource utilization across compute nodes.
+* Investigated worker scheduling bottlenecks.
+
+---
+
+# 6. Async Job API Optimization
+
+* Redesigned async job response schemas.
+* Reduced payload sizes returned by status APIs.
+* Standardized API contracts across multiple services.
+* Simplified frontend integration.
+* Added compact execution metadata.
+* Removed redundant response fields.
+* Improved polling efficiency.
+
+---
+
+# 7. Compact WSI Result Representation
+
+* Optimized WSI inference response payloads.
+* Introduced class-ID mapping instead of verbose class names.
+* Reduced JSON payload size significantly.
+* Improved frontend parsing performance.
+* Reduced network bandwidth requirements.
+* Maintained backward compatibility where possible.
+
+---
+
+# 8. Failed Job Cleanup Framework
+
+* Designed APIs for removing stale or failed asynchronous jobs.
+* Added cleanup workflows for both training and inference pipelines.
+* Prevented accumulation of invalid job metadata.
+* Improved operational maintainability.
+* Simplified monitoring dashboards.
+
+---
+
+# 9. Similarity Heatmap API Development
+
+* Converted an experimental Jupyter notebook workflow into a production-ready FastAPI service.
+* Designed REST API for generating similarity heatmaps from vector embeddings.
+* Preserved notebook behavior while introducing production-level abstractions.
+* Modularized similarity computation into reusable backend services.
+* Implemented configurable grid specifications for frontend compatibility.
+* Returned generated heatmaps as API responses.
+
+---
+
+# 10. Section-Level Embedding Cache
+
+* Designed an in-memory caching system for Milvus section embeddings.
+* Cached complete embedding sections to avoid repeated vector database queries.
+* Implemented cache expiration mechanisms.
+* Significantly reduced repeated retrieval latency.
+* Improved performance for repeated similarity heatmap requests.
+* Minimized Milvus query load.
+
+---
+
+# 11. Query Vector Cache
+
+* Implemented caching for query embedding retrieval.
+* Avoided repeated lookup of identical vectors.
+* Reduced vector database access frequency.
+* Improved similarity search throughput.
+* Accelerated repeated heatmap generation.
+
+---
+
+# 12. Heatmap Generation Optimization
+
+* Refactored similarity computation workflow.
+* Standardized vector retrieval logic.
+* Optimized cosine similarity calculations.
+* Reduced redundant preprocessing.
+* Improved heatmap rendering performance.
+* Ensured consistency between notebook and production implementations.
+
+---
+
+# 13. Vector Deduplication Strategy
+
+* Investigated duplicate embedding retrieval issues.
+* Implemented deduplication using tile index and local coordinate metadata.
+* Ensured unique vector processing.
+* Eliminated duplicated similarity calculations.
+* Improved correctness of generated heatmaps.
+
+---
+
+# 14. Large-Scale Milvus Performance Benchmarking
+
+* Conducted performance benchmarking on large embedding collections.
+* Measured retrieval latency across hundreds of thousands of embeddings.
+* Identified retrieval bottlenecks.
+* Compared pagination strategies.
+* Evaluated scalability limitations.
+* Generated optimization recommendations.
+
+---
+
+# 15. PyMilvus Retrieval Research
+
+* Investigated iterator-based retrieval APIs provided by PyMilvus.
+* Compared iterator-based retrieval against primary-key pagination.
+* Evaluated memory consumption.
+* Measured throughput improvements.
+* Documented findings for future optimization.
+
+---
+
+# 16. Embedding Storage Optimization Research
+
+* Studied storage footprint of high-dimensional embeddings.
+* Evaluated vector compression techniques.
+* Investigated dimensionality reduction trade-offs.
+* Compared storage-performance balance.
+* Analyzed feasibility of compression without degrading similarity quality.
+
+---
+
+# 17. Redis Feasibility Study for Embedding Cache
+
+* Evaluated Redis as a caching layer for large embedding datasets.
+* Estimated memory requirements for millions of embeddings.
+* Compared in-memory caching versus on-demand vector retrieval.
+* Identified scalability constraints.
+* Proposed hybrid caching strategies.
+
+---
+
+# 18. Embedding Status Cache Architecture
+
+* Designed architecture for tracking embedding availability.
+* Proposed Redis-backed status cache synchronized with Milvus metadata.
+* Reduced expensive existence queries against vector storage.
+* Improved frontend responsiveness for embedding status checks.
+* Defined cache synchronization workflows.
+
+---
+
+# 19. Milvus Metadata Synchronization
+
+* Designed synchronization strategies using primary key and tile-index metadata.
+* Evaluated incremental refresh mechanisms.
+* Proposed periodic synchronization workflows.
+* Reduced metadata lookup overhead.
+* Improved cache consistency.
+
+---
+
+# 20. Configuration Externalization
+
+* Reviewed approaches for moving runtime configuration outside application code.
+* Evaluated environment-based configuration management.
+* Investigated compatibility across deployment environments.
+* Improved maintainability of backend services.
+* Reduced hardcoded runtime dependencies.
+
+---
+
+# 21. Backend Documentation & Knowledge Transfer
+
+* Documented asynchronous processing architecture.
+* Created implementation notes for Celery-based workflows.
+* Prepared technical documentation for deployment and maintenance.
+* Standardized project documentation.
+* Assisted in development branch integration and validation.
+
+---
+
+# 22. FastAPI Backend Engineering
+
+* Developed and maintained production FastAPI services.
+* Designed RESTful APIs following consistent conventions.
+* Implemented request validation using Pydantic models.
+* Improved API modularity through service abstraction.
+* Structured backend components for maintainability and extensibility.
+
+---
+
+# 23. Distributed Backend Architecture
+
+* Integrated Redis, Celery, MongoDB, FastAPI, and Milvus into a unified distributed backend.
+* Designed asynchronous communication between services.
+* Reduced tight coupling between frontend requests and long-running computations.
+* Improved scalability and fault isolation.
+
+---
+
+# 24. Production Debugging & Performance Engineering
+
+* Diagnosed memory bottlenecks in long-running ML inference pipelines.
+* Investigated backend worker crashes under heavy load.
+* Profiled large-scale embedding retrieval performance.
+* Optimized backend workflows through iterative benchmarking.
+* Validated production behavior using API-level testing.
+
+---
+
+# Technologies & Concepts Demonstrated
+
+This internship gave you experience with:
+
+* FastAPI
+* Python
+* Celery
+* Redis
+* MongoDB
+* Milvus Vector Database
+* Vector Search
+* Embedding Retrieval
+* REST API Design
+* Asynchronous Processing
+* Distributed Systems
+* Background Job Scheduling
+* Backend Performance Optimization
+* Caching Strategies
+* AI Infrastructure Engineering
+* Similarity Search
+* Cosine Similarity
+* Large-scale Data Processing
+* System Design
+* Memory Optimization
+* Production Debugging
+* API Architecture
+* Backend Scalability
+* Technical Documentation
+* Research & Performance Benchmarking
+

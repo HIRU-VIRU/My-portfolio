@@ -12,6 +12,7 @@ import TechStackNew from "./TechStackNew";
 import CallToAction from "./CallToAction";
 import Certifications from "./Certifications";
 import setSplitText from "./utils/splitText";
+import ParticlesBackground from "./ParticlesBackground";
 
 const MainContainer = () => {
   const [isDesktopView, setIsDesktopView] = useState<boolean>(
@@ -32,6 +33,7 @@ const MainContainer = () => {
 
   return (
     <div className="container-main">
+      <ParticlesBackground />
       <Cursor />
       <Navbar />
       <SocialIcons />

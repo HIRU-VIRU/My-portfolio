@@ -28,6 +28,10 @@ export const config = {
             {
                 text: "Passionate about agentic AI, RAG systems, and AI ethics",
                 icon: "brain"
+            },
+            {
+                text: "LLM Intern at Sudha Gopalakrishnan Brain Centre, IIT Madras",
+                icon: "brain"
             }
         ]
     },
@@ -36,7 +40,7 @@ export const config = {
             degree: "Bachelor of Science in Data Science",
             institution: "Indian Institute of Technology, Madras",
             period: "May 2024 - Sept 2028",
-            cgpa: "8.46",
+            cgpa: "8.63",
             link: "https://app.onlinedegree.iitm.ac.in/student/24F2001283#",
             logo: "/images/iitm_logo.jpeg",
             highlights: [
@@ -48,7 +52,7 @@ export const config = {
             degree: "Bachelor of Technology in AI & ML",
             institution: "Saveetha Engineering College",
             period: "Sept 2023 - May 2027",
-            cgpa: "8.64",
+            cgpa: "8.63",
             logo: "/images/sec_logo.jpeg",
             highlights: [
                 "Finalist in Smart India Hackathon 2025 (SIH 2025)",
@@ -143,6 +147,47 @@ export const config = {
                 "/images/timeline/SIH/97f4e94c-8294-4701-bb8a-3d76c5d051c3.jpeg",
                 "/images/timeline/SIH/f5609c70-d169-42bc-b88e-ccd7666bfc05.jpeg",
                 "/images/timeline/SIH/image.png"
+            ]
+        },
+        {
+            title: "AI Ascend Hackathon (Kyndryl x AWS)",
+            event: "Saveetha Engineering College",
+            date: "March 2026",
+            sortDate: "2026-03-08",
+            description: "Participated in the AI Ascend national-level hackathon and AI innovation initiative by Kyndryl and AWS at Saveetha Engineering College. Emerged in the Top 10 teams in the Grand Finale.",
+            github: "",
+            images: [
+                "/images/timeline/aiascend/aiascend1.jpeg",
+                "/images/timeline/aiascend/aiascend2.jpeg",
+                "/images/timeline/aiascend/aiascend3.jpeg"
+            ]
+        },
+        {
+            title: "LLM Intern",
+            event: "Sudha Gopalakrishnan Brain Centre, IIT Madras",
+            date: "May 2026 - Present",
+            sortDate: "2026-05-14",
+            description: "Joined the Sudha Gopalakrishnan Brain Centre (SGBC) at IIT Madras as an LLM Intern.",
+            github: "",
+            images: [
+                "/images/timeline/SGBC/sgbc-iitm2.jpg",
+                "/images/timeline/SGBC/SGBC.jpg",
+                "/images/timeline/SGBC/sgbc-iitm1.jpg",
+                "/images/timeline/SGBC/sgbc-iitm3.jpg"
+            ]
+        },
+        {
+            title: "3rd BRICS Neuroscience Symposium",
+            event: "IIT Madras",
+            date: "June 2026",
+            sortDate: "2026-06-05",
+            description: "Participated in the 3rd BRICS Neuroscience Symposium hosted by the Sudha Gopalakrishnan Brain Centre (SGBC) at IIT Madras alongside the SGBC team. The event marked the release of the Human Brainstem Atlas and fostered international collaboration in neuroscience.",
+            github: "",
+            images: [
+                "/images/timeline/BRICS/BRICS.jpg",
+                "/images/timeline/BRICS/brics.jpg",
+                "/images/timeline/BRICS/brics1.jpg",
+                "/images/timeline/BRICS/brics2.jpg"
             ]
         }
     ],

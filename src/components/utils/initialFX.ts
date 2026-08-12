@@ -20,16 +20,17 @@ export function initialFX() {
     type: "chars,lines",
     linesClass: "split-line",
   });
+  
+  // "Train enter and jump" animation for main heading
   gsap.fromTo(
     landingText.chars,
-    { opacity: 0, y: 80, filter: "blur(5px)" },
+    { opacity: 0, x: -1000, y: 0, scale: 1, rotation: 0 },
     {
-      opacity: 1,
-      duration: 1.2,
-      filter: "blur(0px)",
-      ease: "power3.inOut",
-      y: 0,
-      stagger: 0.025,
+      keyframes: [
+        { opacity: 1, x: 0, y: -40, duration: 0.5, ease: "power2.out" },
+        { y: 0, duration: 0.6, ease: "bounce.out" }
+      ],
+      stagger: 0.04,
       delay: 0.3,
     }
   );
@@ -37,29 +38,33 @@ export function initialFX() {
   let TextProps = { type: "chars,lines", linesClass: "split-h2" };
 
   var landingText2 = new TextSplitter(".landing-h2-info", TextProps);
+  var landingText4 = new TextSplitter(".landing-h2-1", TextProps);
+
+  // Train enter and jump for "AI Engineer &"
   gsap.fromTo(
-    landingText2.chars,
-    { opacity: 0, y: 80, filter: "blur(5px)" },
+    landingText4.chars,
+    { opacity: 0, x: -1000, y: 0, scale: 1, rotation: 0 },
     {
-      opacity: 1,
-      duration: 1.2,
-      filter: "blur(0px)",
-      ease: "power3.inOut",
-      y: 0,
-      stagger: 0.025,
-      delay: 0.3,
+      keyframes: [
+        { opacity: 1, x: 0, y: -40, duration: 0.5, ease: "power2.out" },
+        { y: 0, duration: 0.6, ease: "bounce.out" }
+      ],
+      stagger: 0.04,
+      delay: 0.8,
     }
   );
 
+  // Train enter and jump for "Full-Stack Dev"
   gsap.fromTo(
-    ".landing-info-h2",
-    { opacity: 0, y: 30 },
+    landingText2.chars,
+    { opacity: 0, x: -1000, y: 0, scale: 1, rotation: 0 },
     {
-      opacity: 1,
-      duration: 1.2,
-      ease: "power1.inOut",
-      y: 0,
-      delay: 0.8,
+      keyframes: [
+        { opacity: 1, x: 0, y: -40, duration: 0.5, ease: "power2.out" },
+        { y: 0, duration: 0.6, ease: "bounce.out" }
+      ],
+      stagger: 0.04,
+      delay: 1.2,
     }
   );
   gsap.fromTo(

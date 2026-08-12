@@ -47,8 +47,8 @@ const About = () => {
     <div className="about-section" id="about">
       <div className="about-visual">
         <img 
-          src="/images/coding-animation.gif" 
-          alt="Developer working"
+          src="/images/me.jpg" 
+          alt="Hiruthik"
           className="about-gif"
         />
       </div>

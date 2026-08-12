@@ -184,18 +184,25 @@
   .about-section {
     width: var(--cWidth);
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    align-items: stretch;
     max-width: 1920px;
     height: auto;
-    min-height: var(--vh);
+    min-height: auto;
     padding: 60px 0;
     opacity: 1;
-    gap: 60px;
+    gap: 100px;
   }
   .about-visual {
     width: 45%;
-    max-width: 600px;
+    max-width: 500px;
+    justify-content: flex-end;
+    padding: 0;
+  }
+  .about-gif {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
   .about-me {
     padding: 0px;
