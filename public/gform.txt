@@ -1,0 +1,154 @@
+Name / பெயர்
+*
+Hiruthik Sudhakar
+Contact Number / தொடர்பு எண்
+*
+7406295780
+Mail ID / மின்னஞ்சல்
+*
+xmyhiruthik2020@gmail.com
+Designation / பதவி
+*
+Student
+Organisation / நிறுவனம்
+*
+Saveetha Engineering College
+District / மாவட்டம் 
+*
+Problem Title / பிரச்சினையின் தலைப்பு
+
+A clear, specific, and impactful title that captures the core issue.
+(முக்கிய பிரச்சினையை தெளிவாகவும் குறிப்பிட்டதாகவும் தாக்கமுள்ளதாகவும் விளக்கும் தலைப்பு.)
+
+*
+Sector / Domain - துறை / பகுப்பு  
+*
+Agriculture – வேளாண்மை
+Animal Husbandry – கால்நடை வளர்ப்பு
+Horticulture – தோட்டக்கலை
+Fisheries – மீன்வளம்
+Food & Nutrition – உணவு & ஊட்டச்சத்து
+Health and Well-being – சுகாதாரம் மற்றும் நலன்
+Rural / Local Problems – ஊரக / உள்ளூர் பிரச்சினைகள்
+Engineering – பொறியியல்
+AI & ML – செயற்கை நுண்ணறிவு & இயந்திரக் கற்றல்
+Energy – ஆற்றல்
+Manufacturing – உற்பத்தித்துறை
+MSME – சிறு, குறு மற்றும் நடுத்தர தொழில்கள் (MSME)
+EdTech – கல்வி தொழில்நுட்பம்
+Clean Water and Sanitation – சுத்தமான குடிநீர் மற்றும் சுகாதாரம்
+Environment – சுற்றுச்சூழல்
+Environment – காலநிலை மாற்ற நடவடிக்கை
+Construction – கட்டுமானம்
+Clean Energy – இயற்கை ஆற்றல்
+Climate Action – காலநிலை மாற்ற நடவடிக்கை
+Aerospace and Aviation – விண்வெளி மற்றும் விமானப் போக்குவரத்து
+Tourism – சுற்றுலா
+Ocean Tech – கடல்சார் தொழில்நுட்பம்
+Transportation – போக்குவரத்து
+Logistics – தளவாடங்கள்
+Fintech – நிதித் தொழில்நுட்பம்
+Other:
+Problem Summary (Elevator Pitch) - பிரச்சினை சுருக்கம்  
+
+A crisp 2–3-line summary explaining the problem.
+
+பிரச்சினையை 2–3 வரிகளில் சுருக்கமாக விளக்கவும்.
+
+*
+Background & Context - பின்னணி & சூழல்    
+
+Provide context: when/where it occurs, current scenario, supporting data or trends.
+
+
+பிரச்சினை எப்போது / எங்கு ஏற்படுகிறது, தற்போதைய நிலை, ஆதாரத் தகவல்கள் அல்லது போக்குகள் ஆகியவற்றை விளக்கவும்.
+
+*
+Problem Definition - பிரச்சினை வரையறை  
+
+Clearly define the issue, root causes, and why it persists.
+
+பிரச்சினையின் தன்மை, அதன் அடிப்படை காரணங்கள் மற்றும் அது தொடர்ந்து நீடிக்கும் காரணங்களை தெளிவாக விளக்கவும்.
+
+*
+Key Challenges / Pain Points - முக்கிய சவால்கள் / சிக்கல்கள்  
+
+List operational, technical, cost, and accessibility challenges.
+
+செயல்பாட்டு, தொழில்நுட்ப, செலவு மற்றும் அணுகல் தொடர்பான சவால்களை பட்டியலிடவும்.
+
+*
+Stakeholders Affected - பாதிக்கப்படும் பங்குதாரர்கள்  
+
+Identify affected groups such as farmers, MSMEs, students, etc.
+
+விவசாயிகள், MSMEகள், மாணவர்கள் போன்ற பாதிக்கப்படும் குழுக்களை அடையாளம் காணவும்.
+
+*
+Justification / Need for Solution - தீர்வின் அவசியம்
+
+Why solving this problem is critical now.
+
+இந்த பிரச்சினையை உடனடியாக தீர்ப்பது ஏன் முக்கியம் என்பதை விளக்கவும்.
+
+*
+Existing Solutions & Gaps - உள்ள தீர்வுகள் & குறைபாடுகள்  
+
+Describe current solutions and their limitations.
+
+தற்போது உள்ள தீர்வுகள் மற்றும் அவற்றின் வரம்புகளை விளக்கவும்.
+
+*
+Type of Innovation - புத்தாக்கத்தின் வகை  
+*
+Product / தயாரிப்பு
+Process / செயல்முறை
+Service / சேவை
+Technology / தொழில்நுட்பம்
+SDG Alignment - SDG ஒத்திசைவு  
+
+Mention relevant Sustainable Development Goals.
+
+தொடர்புடைய நிலைத்த வளர்ச்சி இலக்குகள் (SDGs) குறிப்பிடவும்.
+
+*
+SDG 1 – No Poverty – வறுமையின்மை
+SDG 2 – Zero Hunger – பசியற்ற உலகம்
+SDG 3 – Good Health and Well-being – நல்ல ஆரோக்கியமும் நலனும்
+SDG 4 – Quality Education – தரமான கல்வி
+SDG 5 – Gender Equality – பாலின சமத்துவம்
+SDG 6 – Clean Water and Sanitation – சுத்தமான நீரும் சுகாதாரமும்
+SDG 7 – Affordable and Clean Energy – மலிவான மற்றும் சுத்தமான ஆற்றல்
+SDG 8 – Decent Work and Economic Growth – நல்ல வேலைவாய்ப்பும் பொருளாதார வளர்ச்சியும்
+SDG 9 – Industry, Innovation and Infrastructure – தொழில், புத்தாக்கம் மற்றும் உட்கட்டமைப்பு
+SDG 10 – Reduced Inequalities – ஏற்றத்தாழ்வுகளை குறைத்தல்
+SDG 11 – Sustainable Cities and Communities – நிலைத்த நகரங்கள் மற்றும் சமூகங்கள்
+SDG 12 – Responsible Consumption and Production – பொறுப்பான நுகர்வு மற்றும் உற்பத்தி
+SDG 13 – Climate Action – காலநிலை மாற்ற நடவடிக்கை
+SDG 14 – Life Below Water – நீருக்கடியில் வாழும் உயிரினங்கள்
+SDG 15 – Life on Land – நிலத்தில் வாழும் உயிரினங்கள்
+SDG 16 – Peace, Justice and Strong Institutions – அமைதி, நீதி மற்றும் வலுவான நிறுவனங்கள்
+SDG 17 – Partnerships for the Goals – இலக்குகளுக்கான கூட்டாண்மைகள்
+Target Beneficiaries - இலக்கு பயனாளிகள்  
+
+Define specific end users.
+
+குறிப்பிட்ட இறுதி பயனாளிகளை வரையறுக்கவும்.
+
+*
+Source of Problem - பிரச்சினையின் மூலாதாரம்  
+
+How the problem was identified.
+
+இந்த பிரச்சினை எவ்வாறு கண்டறியப்பட்டது என்பதை விளக்கவும்.
+
+*
+Geographic Relevance - புவியியல் தொடர்பு  
+*
+Village – கிராமம்
+District – மாவட்டம்
+State – மாநிலம்
+National – நாடு
+Global – உலகம்
+Expected Outcome - எதிர்பார்க்கப்படும் முடிவு  
+*
