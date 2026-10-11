@@ -1,6 +1,7 @@
 import { PropsWithChildren } from "react";
 import "./styles/Landing.css";
 import { config } from "../config";
+import AgentAvatar from "./AgentAvatar/AgentAvatar";
 
 const Landing = ({ children }: PropsWithChildren) => {
   const nameParts = config.developer.fullName.split(" ");
@@ -21,6 +22,7 @@ const Landing = ({ children }: PropsWithChildren) => {
             </h1>
           </div>
           <div className="landing-info">
+            <span className="landing-shock" aria-hidden="true" />
             <h3>An</h3>
             <h2 className="landing-info-h2">
               <div className="landing-h2-1">AI</div>
@@ -29,10 +31,7 @@ const Landing = ({ children }: PropsWithChildren) => {
               <div className="landing-h2-info">Engineer</div>
             </h2>
           </div>
-          {/* Mobile photo - shows only on mobile when 3D character is hidden */}
-          <div className="mobile-photo">
-            <img src="/images/profile.png" alt={config.developer.fullName} />
-          </div>
+          <AgentAvatar />
         </div>
         {children}
       </div>

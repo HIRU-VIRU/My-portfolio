@@ -12,7 +12,7 @@ import TechStackNew from "./TechStackNew";
 import CallToAction from "./CallToAction";
 import Certifications from "./Certifications";
 import setSplitText from "./utils/splitText";
-import ParticlesBackground from "./ParticlesBackground";
+import DotGridBackground from "./DotGridBackground";
 import VelocityMarquee from "./VelocityMarquee";
 
 const MainContainer = () => {
@@ -34,7 +34,7 @@ const MainContainer = () => {
 
   return (
     <div className="container-main">
-      <ParticlesBackground />
+      <DotGridBackground />
       <Cursor />
       <Navbar />
       <SocialIcons />

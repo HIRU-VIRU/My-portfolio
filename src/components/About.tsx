@@ -1,70 +1,174 @@
+import { Fragment, useEffect, useMemo, useRef, useState } from "react";
+import gsap from "gsap";
 import "./styles/About.css";
 import { config } from "../config";
+import { certificates } from "../data/certificates";
 import StatsCounter from "./StatsCounter";
+import { prefersReducedMotion } from "./effects/motion";
 
-const iconMap: { [key: string]: JSX.Element } = {
-  education: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-      <path d="M6 12v5c3 3 9 3 12 0v-5" />
-    </svg>
-  ),
-  code: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <polyline points="16 18 22 12 16 6" />
-      <polyline points="8 6 2 12 8 18" />
-    </svg>
-  ),
-  trophy: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
-      <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
-      <path d="M4 22h16" />
-      <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
-      <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
-      <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
-    </svg>
-  ),
-  brain: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z" />
-      <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z" />
-    </svg>
-  ),
-  bridge: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M6 19V5" />
-      <path d="M18 5v14" />
-      <path d="M2 15h20" />
-      <path d="M3 19h18" />
-      <path d="M6 5H3" />
-      <path d="M21 5h-3" />
-    </svg>
-  ),
+type Tok = [cls: "" | "p" | "k" | "s" | "n", text: string];
+
+const current = config.experiences.find((e) => /present/i.test(e.date));
+const [iitm, saveetha] = config.education;
+
+// about.json, as syntax-highlighted tokens per line
+const LINES: Tok[][] = [
+  [["p", "$ "], ["", "cat about.json"]],
+  [["", "{"]],
+  [["", "  "], ["k", '"role"'], ["", ": "], ["s", '"AI Engineer"'], ["", ","]],
+  ...(current
+    ? ([[["", "  "], ["k", '"now"'], ["", ": "], ["s", `"${current.title} @ SGBC, IIT Madras"`], ["", ","]]] as Tok[][])
+    : []),
+  [["", "  "], ["k", '"education"'], ["", ": ["], ["s", `"BS Data Science, IIT Madras · ${iitm.cgpa}"`], ["", ","]],
+  [["", "                "], ["s", `"B.Tech AI & ML, ${saveetha.institution.split(" ")[0]}"`], ["", "],"]],
+  [["", "  "], ["k", '"focus"'], ["", ": ["], ["s", '"Agentic AI"'], ["", ", "], ["s", '"RAG"'], ["", ","]],
+  [["", "            "], ["s", '"Computer Vision"'], ["", ", "], ["s", '"AI Ethics"'], ["", "],"]],
+  [["", "  "], ["k", '"hackathons"'], ["", ": "], ["s", '"15+"'], ["", ","]],
+  [["", "  "], ["k", '"projects"'], ["", ": "], ["n", String(config.projects.length)], ["", ", "], ["k", '"certifications"'], ["", ": "], ["n", String(certificates.length)]],
+  [["", "}"]],
+];
+const TOTAL = LINES.reduce((n, l) => n + l.reduce((m, [, t]) => m + t.length, 0) + 1, 0);
+
+/** Lanyard badge that swings like a pendulum when the cursor moves past it. */
+const Badge = () => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || prefersReducedMotion()) return;
+    let angle = 0, vel = 0, lastX: number | null = null;
+    const section = el.closest(".about-section") as HTMLElement;
+
+    const onMove = (e: PointerEvent) => {
+      if (lastX !== null) vel += gsap.utils.clamp(-30, 30, e.clientX - lastX) * 0.012;
+      lastX = e.clientX;
+    };
+    const onLeave = () => (lastX = null);
+    const tick = (time: number) => {
+      // Damped spring back to a gentle idle sway
+      const idle = Math.sin(time * 1.1) * 1.6;
+      vel += (idle - angle) * 0.02;
+      vel *= 0.93;
+      angle += vel;
+      el.style.transform = `rotate(${angle}deg)`;
+    };
+    section.addEventListener("pointermove", onMove);
+    section.addEventListener("pointerleave", onLeave);
+    gsap.ticker.add(tick);
+    return () => {
+      section.removeEventListener("pointermove", onMove);
+      section.removeEventListener("pointerleave", onLeave);
+      gsap.ticker.remove(tick);
+    };
+  }, []);
+
+  return (
+    <div className="badge-hang" ref={ref}>
+      <div className="badge-strap" />
+      <div className="badge-clip" />
+      <div className="badge">
+        <div className="badge-hole" />
+        <img src="/images/me.jpg" alt={config.developer.fullName} loading="lazy" />
+        <div className="badge-name">
+          {config.developer.fullName.split(" ").map((w) => (
+            <span key={w}>{w}</span>
+          ))}
+        </div>
+        <div className="badge-row">
+          <span className="badge-role">AI ENGINEER</span>
+          <span className="badge-chip">SIH 2025 FINALIST</span>
+        </div>
+        <div className="badge-row">
+          <span className="badge-barcode" />
+          <span className="badge-org">IITM · SEC</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+/** Terminal that types out about.json once it scrolls into view. */
+const Terminal = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [shown, setShown] = useState(() => (prefersReducedMotion() ? TOTAL : 0));
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || shown >= TOTAL) return;
+    let raf = 0;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        io.disconnect();
+        const start = performance.now();
+        const step = (now: number) => {
+          const n = Math.min(TOTAL, Math.floor((now - start) / 9)); // ~110 chars/s
+          setShown(n);
+          if (n < TOTAL) raf = requestAnimationFrame(step);
+        };
+        raf = requestAnimationFrame(step);
+      },
+      { threshold: 0.4 }
+    );
+    io.observe(el);
+    return () => {
+      io.disconnect();
+      cancelAnimationFrame(raf);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const body = useMemo(() => {
+    let left = shown;
+    return LINES.map((line, i) => {
+      if (left <= 0) return null;
+      const parts = line.map(([cls, text], j) => {
+        const visible = text.slice(0, Math.max(0, left));
+        left -= text.length;
+        return visible ? (
+          <span key={j} className={cls ? `t-${cls}` : undefined}>
+            {visible}
+          </span>
+        ) : null;
+      });
+      left -= 1; // newline
+      return (
+        <Fragment key={i}>
+          {parts}
+          {"\n"}
+        </Fragment>
+      );
+    });
+  }, [shown]);
+
+  return (
+    <div className="about-terminal" ref={ref}>
+      <div className="about-terminal-bar">
+        <i />
+        <i />
+        <i />
+        <span>hiru@ai: ~/about</span>
+      </div>
+      <pre aria-label="About me as JSON">
+        {body}
+        {shown >= TOTAL && <span className="t-p">$ </span>}
+        <span className="about-caret" />
+      </pre>
+    </div>
+  );
 };
 
 const About = () => {
   return (
     <div className="about-section" id="about">
-      <div className="about-visual">
-        <img 
-          src="/images/me.jpg" 
-          alt="Hiruthik"
-          className="about-gif"
-        />
+      <div className="about-badge-col">
+        <Badge />
       </div>
       <div className="about-me">
-        <h3 className="title">{config.about.title}</h3>
-        <div className="about-points">
-          {config.about.points.map((point, index) => (
-            <div key={index} className="about-point">
-              <div className="about-icon">
-                {iconMap[point.icon]}
-              </div>
-              <p className="about-text">{point.text}</p>
-            </div>
-          ))}
-        </div>
+        <h3 className="title">
+          About <span>me</span>
+        </h3>
+        <Terminal />
         <StatsCounter />
       </div>
     </div>
