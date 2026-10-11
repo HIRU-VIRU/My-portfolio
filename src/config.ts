@@ -195,6 +195,8 @@ export const config = {
         {
             id: 1,
             title: "SkillSync - AI Resume Screening System",
+            domain: "Agents & RAG",
+            metric: "500 résumés ranked in 90 s",
             category: "HR Tech | Intelligent Resume Filtering",
             technologies: "FastAPI, Google Gemini 2.5, ChromaDB, React, PostgreSQL",
             image: "/images/projects/skill-sync.png",
@@ -205,6 +207,8 @@ export const config = {
         {
             id: 2,
             title: "Sticky-Net - AI-Powered Honeypot System",
+            domain: "AI Safety",
+            metric: "Extracts UPI IDs, accounts & phishing links",
             category: "Cybersecurity | Scam Detection",
             technologies: "Python, FastAPI, React, Gemini 3.0, Tailwind CSS",
             image: "/images/projects/sticky-net.png",
@@ -215,6 +219,8 @@ export const config = {
         {
             id: 3,
             title: "M&A RAG Agent - Due Diligence System",
+            domain: "Agents & RAG",
+            metric: "Due diligence: 6 months → 2 hours",
             category: "Finance | M&A Intelligence",
             technologies: "LangGraph, OpenAI GPT-4, ChromaDB, LangChain, DeepEval",
             image: "/images/projects/m-a-rag-agent.png",
@@ -225,6 +231,8 @@ export const config = {
         {
             id: 4,
             title: "LearnWeave - AI Learning Companion",
+            domain: "EdTech & Sanskrit",
+            metric: "8 agents · Bloom's taxonomy",
             category: "EdTech | Bloom's Taxonomy-Aligned Learning",
             technologies: "FastAPI, Google ADK, Gemini 2.5, ChromaDB, React, MySQL",
             image: "/images/projects/learn-weave.png",
@@ -235,6 +243,8 @@ export const config = {
         {
             id: 5,
             title: "PhishGuard Vision (Mind Link)",
+            domain: "AI Safety",
+            metric: "On-device Gemini Nano",
             category: "Browser Extension | AI Safety",
             technologies: "Chrome Built-in AI, Gemini Nano, JavaScript, Manifest V3",
             image: "/images/projects/mind-link.png",
@@ -245,6 +255,8 @@ export const config = {
         {
             id: 6,
             title: "LaTeX Resume Agent",
+            domain: "Career & Automation",
+            metric: "JD-aware · one page · no hallucinations",
             category: "Career Tools | Resume Generation",
             technologies: "FastAPI, Next.js, Gemini 2.5, ChromaDB, GitHub OAuth",
             image: "/images/projects/latex-agent.png",
@@ -255,6 +267,8 @@ export const config = {
         {
             id: 7,
             title: "VerifyX AI - Background Verification",
+            domain: "Agents & RAG",
+            metric: "Verification: 20 days → 5 s",
             category: "HR Tech | Multi-Agent Verification",
             technologies: "FastAPI, LangGraph, React, PostgreSQL, Redis, MinIO",
             image: "/images/projects/verify-x-ai.png",
@@ -265,6 +279,8 @@ export const config = {
         {
             id: 8,
             title: "Neutralis-AI - Ethics MCP Server",
+            domain: "AI Safety",
+            metric: "Bias & critical-thinking checks over MCP",
             category: "AI Ethics | Model Context Protocol",
             technologies: "Node.js, TypeScript, Google Gemini, MCP SDK",
             image: "/images/projects/neutralis-ai.png",
@@ -275,6 +291,8 @@ export const config = {
         {
             id: 9,
             title: "Job Scraper - LinkedIn Automation",
+            domain: "Career & Automation",
+            metric: "Hourly scrape · email alerts",
             category: "Automation | Job Monitoring",
             technologies: "FastAPI, React, Python-JobSpy, SQLite, TailwindCSS",
             image: "/images/projects/job-scrapper.png",
@@ -285,6 +303,8 @@ export const config = {
         {
             id: 10,
             title: "Chandas AI - Sanskrit Meter Identifier",
+            domain: "EdTech & Sanskrit",
+            metric: "1,920 meters · SIH 2025 finalist",
             category: "Indian Knowledge Systems | AI Prosody Analysis",
             technologies: "Flask, REST API, Python, Tesseract OCR, Google Vision",
             image: "/images/projects/chandas-ai.png",
@@ -295,6 +315,8 @@ export const config = {
         {
             id: 11,
             title: "Chandas Game - Gamified Sanskrit Learning",
+            domain: "EdTech & Sanskrit",
+            metric: "Levels, streaks & leaderboards",
             category: "EdTech | Interactive Learning Platform",
             technologies: "FastAPI, React, Python, Gamification, Sanskrit Prosody",
             image: "/images/projects/chandas-game.png",
@@ -305,6 +327,8 @@ export const config = {
         {
             id: 12,
             title: "SafeSight AI - Construction Safety Monitor",
+            domain: "Computer Vision",
+            metric: "Live PPE violation detection",
             category: "Computer Vision | PPE Violation Detection",
             technologies: "Python, YOLO, Flask, React, SQLite, OpenCV, Vite",
             image: "/images/projects/safe-sight-ai.png",
@@ -315,6 +339,8 @@ export const config = {
         {
             id: 13,
             title: "SmartVision - Seafood Quality AI",
+            domain: "Computer Vision",
+            metric: "Freshness grading on an edge GPU",
             category: "Computer Vision | Export Compliance & Vendor Grading",
             technologies: "FastAPI, YOLO, Gemini 2.0 Flash, Next.js, Vertex AI, Ngrok",
             image: "/images/projects/smartvision.png",
@@ -325,6 +351,8 @@ export const config = {
         {
             id: 14,
             title: "LoomGuard-AI - Fabric Defect Detection",
+            domain: "Computer Vision",
+            metric: "YOLOv8 → ONNX on CPU",
             category: "Computer Vision | Industrial AI",
             technologies: "Next.js 14, Tailwind CSS, FastAPI, YOLOv8, ONNX, Hugging Face",
             image: "/images/projects/loomguard-ai.png",
@@ -335,6 +363,8 @@ export const config = {
         {
             id: 15,
             title: "CareerForge - AI Career Accelerator",
+            domain: "Career & Automation",
+            metric: "GitHub code → skills → ATS résumé",
             category: "Education | Career Development",
             technologies: "AWS Bedrock, DynamoDB, S3, FastAPI, Next.js 14, OpenSearch",
             image: "/images/projects/career-forge.png",

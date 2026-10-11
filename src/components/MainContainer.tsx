@@ -13,6 +13,7 @@ import CallToAction from "./CallToAction";
 import Certifications from "./Certifications";
 import setSplitText from "./utils/splitText";
 import ParticlesBackground from "./ParticlesBackground";
+import VelocityMarquee from "./VelocityMarquee";
 
 const MainContainer = () => {
   const [isDesktopView, setIsDesktopView] = useState<boolean>(
@@ -41,6 +42,7 @@ const MainContainer = () => {
         <Landing />
         <About />
         <WhatIDo />
+        <VelocityMarquee />
         <Career />
         <Work />
         <Certifications />

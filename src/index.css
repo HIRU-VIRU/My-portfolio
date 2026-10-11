@@ -19,6 +19,7 @@
   -webkit-user-select: none;
   -moz-user-select: none;
   --accentColor: #00ff88;
+  --accentRgb: 0, 255, 136;
   --backgroundColor: #0b080c;
   --vh: 100vh;
   --vh: 100svh;

@@ -4,6 +4,7 @@ import { config } from "../config";
 import { MdArrowOutward } from "react-icons/md";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Magnetic from "./effects/Magnetic";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -61,10 +62,17 @@ const ImageCarousel = ({ images }: { images: string[] }) => {
   );
 };
 
+// Show a big ghost year beside the first event of each year
+const years = config.experiences.map((e) => e.sortDate.slice(0, 4));
+const showYear = years.map((y, i) => i === 0 || y !== years[i - 1]);
+const TITLE = "Hiru's Journey";
+
 const Career = () => {
   const dotRef = useRef<HTMLDivElement>(null);
+  const tailRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
   const boxRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const nodeRefs = useRef<(HTMLDivElement | null)[]>([]);
   const sectionRef = useRef<HTMLDivElement>(null);
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   const [highlightedIndex, setHighlightedIndex] = useState<number | null>(null);
@@ -84,95 +92,161 @@ const Career = () => {
   useEffect(() => {
     const section = sectionRef.current;
     const dot = dotRef.current;
+    const tail = tailRef.current;
     const line = timelineRef.current;
     const boxes = boxRefs.current.filter(Boolean) as HTMLDivElement[];
-    if (!section || !dot || !line || boxes.length === 0) return;
+    const nodes = nodeRefs.current.filter(Boolean) as HTMLDivElement[];
+    if (!section || !dot || !tail || !line || boxes.length === 0) return;
 
-    const ctx = gsap.context(() => {
-      // Scroll-based highlighting (not expansion)
-      boxes.forEach((box, index) => {
-        ScrollTrigger.create({
-          trigger: box,
-          start: "top 75%",
-          end: "bottom 25%",
-          invalidateOnRefresh: true,
-          onEnter: () => setHighlightedIndex(index),
-          onLeave: () => setHighlightedIndex(null),
-          onEnterBack: () => setHighlightedIndex(index),
-          onLeaveBack: () => setHighlightedIndex(null),
-        });
+    const info = line.parentElement!;
+    let nodeY: number[] = [];
+
+    // Vertical centre of each card's marker, relative to .career-info
+    const measure = () => {
+      const infoTop = info.getBoundingClientRect().top;
+      nodeY = boxes.map((box) => {
+        const r = box.querySelector(".career-marker")!.getBoundingClientRect();
+        return r.top + r.height / 2 - infoTop;
       });
+      nodes.forEach((n, i) => (n.style.top = `${nodeY[i]}px`));
+    };
 
-      // Fade-in animation for each box
-      boxes.forEach((box) => {
+    const mm = gsap.matchMedia();
+
+    mm.add(
+      {
+        motion: "(prefers-reduced-motion: no-preference)",
+        desktop: "(min-width: 901px)",
+      },
+      (context) => {
+        const { motion, desktop } = context.conditions as { motion: boolean; desktop: boolean };
+
+        // Title: letters rise in one after another
         gsap.fromTo(
-          box,
-          { opacity: 0, y: 50 },
+          ".career-title .ct-char",
+          { yPercent: motion ? 110 : 0, opacity: 0 },
           {
+            yPercent: 0,
             opacity: 1,
-            y: 0,
-            duration: 0.8,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: box,
-              start: "top 90%",
-              toggleActions: "play none none reverse",
-              invalidateOnRefresh: true,
-            },
+            duration: 0.9,
+            ease: "power4.out",
+            stagger: 0.035,
+            scrollTrigger: { trigger: ".career-title", start: "top 85%", once: true },
           }
         );
-      });
 
-      // The dot + filled line: scrub from first box to last box
-      const firstBox = boxes[0];
-      const lastBox = boxes[boxes.length - 1];
+        boxes.forEach((box, index) => {
+          const isLeft = index % 2 === 0;
+          const card = box.querySelector(".career-card");
 
-      // Get the vertical center of first and last marker relative to .career-info
-      const getNodePositions = () => {
-        const infoRect = line.parentElement!.getBoundingClientRect();
-        const firstRect = firstBox.querySelector(".career-marker")!.getBoundingClientRect();
-        const lastRect = lastBox.querySelector(".career-marker")!.getBoundingClientRect();
-        const startY = firstRect.top + firstRect.height / 2 - infoRect.top;
-        const endY = lastRect.top + lastRect.height / 2 - infoRect.top;
-        return { startY, endY, infoHeight: infoRect.height };
-      };
+          // Scroll-based highlighting (not expansion)
+          ScrollTrigger.create({
+            trigger: box,
+            start: "top 75%",
+            end: "bottom 25%",
+            invalidateOnRefresh: true,
+            onToggle: (self) => setHighlightedIndex((h) => (self.isActive ? index : h === index ? null : h)),
+          });
 
-      // Use a scrub timeline for the ball rolling
-      // Trigger on .career-info so range = actual timeline content
-      ScrollTrigger.create({
-        trigger: line.parentElement!,
-        start: "top 70%",
-        end: "bottom 40%",
-        scrub: 5,
-        invalidateOnRefresh: true,
-        onUpdate: (self) => {
-          const { startY, endY, infoHeight } = getNodePositions();
-          const currentY = startY + (endY - startY) * self.progress;
-          // Position dot
-          dot.style.top = `${currentY}px`;
-          // Fill the line up to dot
-          line.style.setProperty("--timeline-progress", `${(currentY / infoHeight) * 100}%`);
-        },
-      });
-    }, section);
+          if (!motion) return;
 
-    return () => ctx.revert();
+          // Cards swing in from their own side, tied to scroll position
+          gsap.fromTo(
+            card,
+            {
+              x: desktop ? (isLeft ? -120 : 120) : 40,
+              rotationY: desktop ? (isLeft ? 28 : -28) : 0,
+              opacity: 0,
+              filter: "blur(10px)",
+              transformPerspective: 1200,
+              transformOrigin: isLeft ? "right center" : "left center",
+            },
+            {
+              x: 0,
+              rotationY: 0,
+              opacity: 1,
+              filter: "blur(0px)",
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: box,
+                start: "top 95%",
+                end: "top 55%",
+                scrub: 0.8,
+                invalidateOnRefresh: true,
+              },
+            }
+          );
+
+          // Ghost year drifts at a different speed (parallax)
+          const year = box.querySelector(".career-year");
+          if (year && desktop) {
+            gsap.fromTo(
+              year,
+              { yPercent: 60 },
+              {
+                yPercent: -60,
+                ease: "none",
+                scrollTrigger: { trigger: box, start: "top bottom", end: "bottom top", scrub: true },
+              }
+            );
+          }
+        });
+
+        // Travelling dot + filled line, with a comet tail that stretches with speed
+        measure();
+        const tailTo = gsap.quickTo(tail, "height", { duration: 0.3, ease: "power2.out" });
+        ScrollTrigger.create({
+          trigger: info,
+          start: "top 70%",
+          end: "bottom 40%",
+          scrub: motion ? 1.2 : true,
+          invalidateOnRefresh: true,
+          onRefresh: measure,
+          onUpdate: (self) => {
+            const startY = nodeY[0];
+            const endY = nodeY[nodeY.length - 1];
+            const currentY = startY + (endY - startY) * self.progress;
+            const h = info.offsetHeight;
+            dot.style.top = `${currentY}px`;
+            tail.style.top = `${currentY}px`;
+            line.style.setProperty("--timeline-progress", `${(currentY / h) * 100}%`);
+            nodes.forEach((n, i) => n.classList.toggle("is-reached", currentY >= nodeY[i] - 1));
+            if (motion) tailTo(gsap.utils.clamp(0, 140, Math.abs(self.getVelocity()) * 0.06));
+          },
+        });
+      }
+    );
+
+    return () => mm.revert();
   }, []);
 
   return (
     <div className="career-section section-container" id="career" ref={sectionRef}>
       <div className="career-container">
-        <h2 className="career-title">
-          Hiru's Journey
+        <h2 className="career-title" aria-label={TITLE}>
+          {TITLE.split("").map((c, i) => (
+            <span className="ct-mask" key={i} aria-hidden="true">
+              <span className="ct-char">{c === " " ? " " : c}</span>
+            </span>
+          ))}
         </h2>
         <div className="career-info">
           <div className="career-timeline" ref={timelineRef}>
+            {config.experiences.map((_, i) => (
+              <div
+                key={i}
+                className="career-node"
+                ref={(el) => { nodeRefs.current[i] = el; }}
+              />
+            ))}
+            <div className="career-tail" ref={tailRef}></div>
             <div className="career-dot" ref={dotRef}></div>
           </div>
           {config.experiences.map((exp, index) => {
             const isLeft = index % 2 === 0;
             const isExpanded = expandedIndex === index;
             const isHighlighted = highlightedIndex === index;
+            const isNow = /present/i.test(exp.date);
             return (
               <div
                 key={index}
@@ -180,17 +254,23 @@ const Career = () => {
                 className={`career-info-box ${isLeft ? "career-left" : "career-right"} ${isExpanded ? "career-expanded" : ""} ${isHighlighted ? "career-highlighted" : ""}`}
                 onClick={() => handleBoxClick(index)}
               >
+                {showYear[index] && (
+                  <span className="career-year" aria-hidden="true">{years[index]}</span>
+                )}
+
                 {/* The marker on the timeline */}
                 <div className="career-marker"></div>
 
                 <div className="career-card">
+                  {isNow && <span className="career-now">Now</span>}
                   {/* Collapsed preview */}
                   <div className="career-preview">
+                    <span className="career-event-preview">{exp.event}</span>
                     <h4 className="career-card-title">{exp.title}</h4>
                     <span className="career-date">{exp.date}</span>
-                    {isHighlighted && !isExpanded && (
-                      <span className="career-click-prompt">Click to view details</span>
-                    )}
+                    <span className="career-click-prompt">
+                      {exp.images.length > 0 ? `${exp.images.length} photos · ` : ""}Click to view details
+                    </span>
                   </div>
 
                   {/* Expanded detail panel */}
@@ -201,16 +281,18 @@ const Career = () => {
                       <span className="career-date-expanded">{exp.date}</span>
                       <p className="career-description">{exp.description}</p>
                       {exp.github && (
-                        <a
-                          href={exp.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="career-github-link"
-                          data-cursor="disable"
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          View on GitHub <MdArrowOutward />
-                        </a>
+                        <Magnetic strength={0.25}>
+                          <a
+                            href={exp.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="career-github-link"
+                            data-cursor="disable"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            View on GitHub <MdArrowOutward />
+                          </a>
+                        </Magnetic>
                       )}
                     </div>
                     {exp.images.length > 0 && (

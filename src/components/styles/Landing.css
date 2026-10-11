@@ -319,9 +319,9 @@
   width: 400px;
   height: 400px;
   z-index: 1;
-  background-color: #00ff88;
+  background-color: var(--accentColor);
   transform: translate(-50%, 36%) scaleX(1.4);
-  box-shadow: inset 66px 35px 85px 0px rgba(0, 255, 136, 0.65);
+  box-shadow: inset 66px 35px 85px 0px rgba(var(--accentRgb), 0.65);
   filter: blur(50px);
   border-radius: 50%;
   top: 50%;
@@ -467,7 +467,7 @@
 }
 
 h2.landing-info-h2 {
-  color: #00ff88;
+  color: var(--accentColor);
   font-size: 36px;
   width: 150%;
   margin: 0;

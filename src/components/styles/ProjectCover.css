@@ -1,0 +1,100 @@
+.project-cover {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 8 / 5;
+  color: var(--accentColor);
+  border-radius: inherit;
+  transition: color 0.5s ease;
+}
+
+/* Subtle looping motion inside the covers */
+.project-cover .pc-flow {
+  animation: pcFlow 1.6s linear infinite;
+}
+.project-cover .pc-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pcPulse 3s ease-in-out infinite;
+}
+.project-cover .pc-scan {
+  animation: pcScan 3.6s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+.project-cover .pc-scan-x {
+  animation: pcScanX 3s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
+}
+.project-cover .pc-blink {
+  animation: pcBlink 1.4s steps(2, jump-none) infinite;
+}
+.project-cover .pc-spin {
+  animation: pcSpin 8s linear infinite;
+}
+.project-cover .pc-sway {
+  transform-origin: 240px 110px;
+  animation: pcSway 4s ease-in-out infinite;
+}
+.project-cover .pc-wave {
+  animation: pcFlow 2s linear infinite;
+  stroke-dasharray: 6 3;
+}
+.project-cover .pc-grow {
+  transform-box: fill-box;
+  transform-origin: left;
+  animation: pcGrow 3s ease-out infinite;
+}
+
+@keyframes pcFlow {
+  to {
+    stroke-dashoffset: -16;
+  }
+}
+@keyframes pcPulse {
+  50% {
+    transform: scale(1.06);
+    opacity: 0.8;
+  }
+}
+@keyframes pcScan {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(206px);
+  }
+}
+@keyframes pcScanX {
+  to {
+    transform: translateX(240px);
+  }
+}
+@keyframes pcBlink {
+  50% {
+    opacity: 0.35;
+  }
+}
+@keyframes pcSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes pcSway {
+  0%,
+  100% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+}
+@keyframes pcGrow {
+  from {
+    transform: scaleX(0.2);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-cover * {
+    animation: none !important;
+  }
+}

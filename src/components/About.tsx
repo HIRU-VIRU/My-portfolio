@@ -1,5 +1,6 @@
 import "./styles/About.css";
 import { config } from "../config";
+import StatsCounter from "./StatsCounter";
 
 const iconMap: { [key: string]: JSX.Element } = {
   education: (
@@ -64,6 +65,7 @@ const About = () => {
             </div>
           ))}
         </div>
+        <StatsCounter />
       </div>
     </div>
   );

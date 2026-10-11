@@ -1,0 +1,20 @@
+.page-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: var(--accentColor);
+  color: var(--backgroundColor);
+  overflow: hidden;
+  pointer-events: all;
+}
+
+.page-curtain-label {
+  display: inline-block;
+  font-size: clamp(48px, 9vw, 140px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}

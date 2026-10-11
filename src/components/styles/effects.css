@@ -1,0 +1,82 @@
+/* ===== Shared interaction effects (Magnetic, TiltCard, Spotlight) ===== */
+
+.magnetic {
+  display: inline-block;
+  will-change: transform;
+}
+.magnetic > * {
+  display: inline-flex;
+  /* GSAP drives transform; a CSS transition on it would make the motion lag */
+  transition-property: background, background-color, color, border-color, box-shadow, opacity !important;
+}
+
+/* --- 3D tilt + glare --- */
+.tilt-card {
+  perspective: 900px;
+}
+.tilt-card-inner {
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+  border-radius: inherit;
+}
+.tilt-card-glare {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: radial-gradient(
+    420px circle at var(--glare-x, 50%) var(--glare-y, 0%),
+    rgba(255, 255, 255, 0.22),
+    rgba(255, 255, 255, 0.04) 40%,
+    transparent 65%
+  );
+  mix-blend-mode: overlay;
+  z-index: 2;
+}
+.tilt-card.is-tilting .tilt-card-glare {
+  opacity: 1;
+}
+
+/* --- Spotlight borders --- */
+.spotlight-card {
+  --spot-x: -999px;
+  --spot-y: -999px;
+  position: relative;
+  isolation: isolate;
+}
+/* Lit border: an accent radial clipped to a 1px ring */
+.spotlight-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(
+    260px circle at var(--spot-x) var(--spot-y),
+    rgba(var(--accentRgb), 0.9),
+    transparent 70%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 3;
+}
+/* Soft inner wash */
+.spotlight-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    380px circle at var(--spot-x) var(--spot-y),
+    rgba(var(--accentRgb), 0.07),
+    transparent 70%
+  );
+  pointer-events: none;
+  /* Behind the card's content but above its background (card is isolated) */
+  z-index: -1;
+}

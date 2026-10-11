@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import "./styles/ParticlesBackground.css";
+import { ACCENT_EVENT, getAccentRgb } from "../utils/accent";
 
 interface Particle {
   x: number;
@@ -7,7 +8,8 @@ interface Particle {
   vx: number;
   vy: number;
   radius: number;
-  color: string;
+  accent: boolean;
+  alpha: number;
 }
 
 const ParticlesBackground: React.FC = () => {
@@ -29,13 +31,13 @@ const ParticlesBackground: React.FC = () => {
 
     const mouse = { x: -1000, y: -1000 };
 
-    // Mix of #00ff88 (green) and #aa42ff (purple) with 0.3-0.7 opacity
-    const colors = [
-      "rgba(0, 255, 136, 0.7)",
-      "rgba(170, 66, 255, 0.7)",
-      "rgba(0, 255, 136, 0.4)",
-      "rgba(170, 66, 255, 0.4)",
-    ];
+    // Mix of the site accent and purple (#aa42ff) at 0.4-0.7 opacity.
+    // The accent is re-read when the visitor switches colors.
+    let accentRgb = getAccentRgb();
+    const onAccentChange = () => {
+      accentRgb = getAccentRgb();
+    };
+    window.addEventListener(ACCENT_EVENT, onAccentChange);
 
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
@@ -53,7 +55,8 @@ const ParticlesBackground: React.FC = () => {
           vx: (Math.random() - 0.5) * 1.5,
           vy: (Math.random() - 0.5) * 1.5,
           radius: Math.random() * 2 + 1,
-          color: colors[Math.floor(Math.random() * colors.length)],
+          accent: Math.random() < 0.5,
+          alpha: Math.random() < 0.5 ? 0.7 : 0.4,
         });
       }
     };
@@ -93,7 +96,7 @@ const ParticlesBackground: React.FC = () => {
         // Draw particle
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = p.color;
+        ctx.fillStyle = `rgba(${p.accent ? accentRgb : "170, 66, 255"}, ${p.alpha})`;
         ctx.fill();
 
         // Connect lines
@@ -140,6 +143,7 @@ const ParticlesBackground: React.FC = () => {
       window.removeEventListener("resize", resizeCanvas);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseout", handleMouseLeave);
+      window.removeEventListener(ACCENT_EVENT, onAccentChange);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);

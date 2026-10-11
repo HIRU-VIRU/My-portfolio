@@ -27,6 +27,24 @@
   letter-spacing: -2px;
 }
 
+/* Per-letter reveal: each char rises out of its own mask */
+.career-title .ct-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: 0.08em;
+}
+
+.career-title .ct-char {
+  display: inline-block;
+  background: inherit;
+  background: linear-gradient(180deg, #ffffff, #a3a3a3);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  will-change: transform;
+}
+
 /* ===== TIMELINE WRAPPER ===== */
 .career-info {
   position: relative;
@@ -59,7 +77,8 @@
   left: 0;
   width: 100%;
   height: var(--timeline-progress, 0%);
-  background: linear-gradient(to bottom, #7f40ff, #00ff88);
+  background: linear-gradient(to bottom, #7f40ff, var(--accentColor));
+  box-shadow: 0 0 8px rgba(var(--accentRgb), 0.6), 0 0 22px rgba(var(--accentRgb), 0.25);
 }
 
 .career-dot {
@@ -67,13 +86,101 @@
   top: 0;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #00ff88;
-  width: 10px;
-  height: 10px;
+  background-color: var(--accentColor);
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   z-index: 4;
-  box-shadow: 0px 0px 10px 2px rgba(0, 255, 136, 0.6);
+  box-shadow: 0 0 0 4px rgba(var(--accentRgb), 0.15), 0 0 18px 4px rgba(var(--accentRgb), 0.6);
   will-change: top;
+}
+
+/* Comet tail: stretches upward with scroll speed */
+.career-tail {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 3px;
+  height: 0;
+  transform: translate(-50%, -100%);
+  border-radius: 3px;
+  background: linear-gradient(to top, rgba(var(--accentRgb), 0.9), transparent);
+  filter: blur(0.5px);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Node on the line for each event; lights up when the dot passes it */
+.career-node {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0.7);
+  background: var(--backgroundColor);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  z-index: 3;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.4s, background 0.4s;
+}
+
+.career-node.is-reached {
+  transform: translate(-50%, -50%) scale(1);
+  border-color: var(--accentColor);
+  background: rgba(var(--accentRgb), 0.25);
+}
+
+.career-node::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  border: 1px solid var(--accentColor);
+  opacity: 0;
+}
+
+.career-node.is-reached::after {
+  animation: nodePing 0.9s ease-out;
+}
+
+@keyframes nodePing {
+  from {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  to {
+    transform: scale(3.2);
+    opacity: 0;
+  }
+}
+
+/* Big outlined year on the opposite side of the line */
+.career-year {
+  position: absolute;
+  top: -20px;
+  font-size: clamp(90px, 10vw, 170px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.09);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  transition: -webkit-text-stroke-color 0.6s;
+}
+
+.career-left .career-year {
+  left: calc(122% + 20px);
+}
+
+.career-right .career-year {
+  right: calc(122% + 20px);
+}
+
+.career-highlighted .career-year {
+  -webkit-text-stroke-color: rgba(var(--accentRgb), 0.35);
 }
 
 /* ===== TIMELINE STOP (each item) ===== */
@@ -122,8 +229,8 @@
 
 .career-info-box:hover .career-marker,
 .career-highlighted .career-marker {
-  background: #00ff88;
-  box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+  background: var(--accentColor);
+  box-shadow: 0 0 10px rgba(var(--accentRgb), 0.5);
   width: 45px;
 }
 
@@ -140,16 +247,78 @@
   padding: 40px;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* transform/filter are scroll-scrubbed by GSAP, so keep them out of the transition */
+  transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
   position: relative;
   overflow: hidden;
 }
 
+/* Accent sheen that sweeps across the card when it becomes active */
+.career-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgba(var(--accentRgb), 0.08) 50%, transparent 70%);
+  transform: translateX(-100%);
+  pointer-events: none;
+}
+
+.career-highlighted .career-card::before {
+  transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform: translateX(100%);
+}
+
+.career-highlighted .career-card {
+  border-color: rgba(var(--accentRgb), 0.25);
+}
+
+.career-now {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accentColor);
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(var(--accentRgb), 0.4);
+}
+
+.career-now::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accentColor);
+  animation: nowPulse 1.6s ease-out infinite;
+}
+
+@keyframes nowPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(var(--accentRgb), 0.7);
+  }
+  100% {
+    box-shadow: 0 0 0 8px rgba(var(--accentRgb), 0);
+  }
+}
+
+.career-event-preview {
+  display: block;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 10px;
+}
+
 .career-info-box:hover .career-card {
-  transform: scale(1.02) translateY(-5px);
   border-color: rgba(255, 255, 255, 0.15);
   background: rgba(255, 255, 255, 0.03);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 255, 136, 0.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 40px rgba(var(--accentRgb), 0.05);
 }
 
 .career-expanded .career-card {
@@ -176,7 +345,7 @@
 
 .career-info-box:hover .career-card-title,
 .career-highlighted .career-card-title {
-  color: #00ff88;
+  color: var(--accentColor);
 }
 
 .career-date {
@@ -190,7 +359,7 @@
 }
 
 .career-info-box:hover .career-date {
-  color: #00ff88;
+  color: var(--accentColor);
 }
 
 .career-click-prompt {
@@ -200,8 +369,15 @@
   color: #aa42ff;
   margin-top: 15px;
   opacity: 0;
-  animation: pulsePrompt 1.5s ease-in-out infinite;
+  transform: translateY(6px);
+  transition: opacity 0.4s, transform 0.4s;
   letter-spacing: 1px;
+}
+
+.career-highlighted .career-click-prompt,
+.career-info-box:hover .career-click-prompt {
+  transform: none;
+  animation: pulsePrompt 1.5s ease-in-out infinite;
 }
 
 @keyframes pulsePrompt {
@@ -230,6 +406,27 @@
   opacity: 1;
 }
 
+/* Detail content staggers in after the panel opens */
+.career-detail-text > *,
+.career-detail-carousel {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.career-expanded .career-detail-text > *,
+.career-expanded .career-detail-carousel {
+  opacity: 1;
+  transform: none;
+}
+
+.career-expanded .career-detail-text > :nth-child(1) { transition-delay: 0.1s; }
+.career-expanded .career-detail-text > :nth-child(2) { transition-delay: 0.16s; }
+.career-expanded .career-detail-text > :nth-child(3) { transition-delay: 0.22s; }
+.career-expanded .career-detail-text > :nth-child(4) { transition-delay: 0.28s; }
+.career-expanded .career-detail-text > :nth-child(5) { transition-delay: 0.34s; }
+.career-expanded .career-detail-carousel { transition-delay: 0.4s; }
+
 .career-detail-text {
   margin-bottom: 25px;
 }
@@ -246,7 +443,7 @@
 .career-event {
   font-size: 18px;
   font-weight: 600;
-  color: #00ff88;
+  color: var(--accentColor);
   margin: 0 0 15px;
   letter-spacing: 0.5px;
 }
@@ -349,8 +546,8 @@
 }
 
 .carousel-btn:hover {
-  background: #00ff88;
-  border-color: #00ff88;
+  background: var(--accentColor);
+  border-color: var(--accentColor);
   color: #000;
 }
 
@@ -377,9 +574,9 @@
 }
 
 .carousel-dot-indicator.active {
-  background: #00ff88;
+  background: var(--accentColor);
   transform: scale(1.3);
-  box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+  box-shadow: 0 0 10px rgba(var(--accentRgb), 0.5);
 }
 
 /* ========== RESPONSIVE ========== */
@@ -467,5 +664,33 @@
   }
   .career-dot {
     left: 5px;
+  }
+}
+/* Slow zoom on the active carousel photo */
+.carousel-slide img {
+  transform: scale(1.12);
+  transition: transform 6.5s linear;
+}
+
+.carousel-slide.active img {
+  transform: scale(1);
+}
+
+@media only screen and (max-width: 900px) {
+  .career-year {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .career-card::before,
+  .career-node::after,
+  .career-now::before {
+    animation: none !important;
+    transition: none !important;
+  }
+  .carousel-slide img {
+    transition: none;
+    transform: none;
   }
 }

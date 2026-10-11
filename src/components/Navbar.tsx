@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HoverLinks from "./HoverLinks";
+import AccentSwitcher from "./AccentSwitcher";
 import { gsap } from "gsap";
 import Lenis from "lenis";
 import "./styles/Navbar.css";
@@ -69,6 +70,7 @@ const Navbar = () => {
         <a href="/#" className="navbar-title" data-cursor="disable">
           <img src="/images/h8-logo.png" alt="H8" className="navbar-logo" />
         </a>
+        <div className="header-nav">
         <ul>
           <li>
             <a data-href="#about" href="#about">
@@ -101,6 +103,8 @@ const Navbar = () => {
             </a>
           </li>
         </ul>
+        <AccentSwitcher />
+        </div>
       </div>
 
       <div className="landing-circle1"></div>
