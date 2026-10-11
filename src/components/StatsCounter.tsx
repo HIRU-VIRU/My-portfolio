@@ -12,11 +12,8 @@ gsap.registerPlugin(ScrollTrigger);
 const STATS = [
   { value: config.projects.length, label: "Projects built", suffix: "" },
   { value: certificates.length, label: "Certifications", suffix: "" },
-  {
-    value: config.experiences.filter((e) => /hack/i.test(`${e.title} ${e.event}`)).length,
-    label: "Hackathons",
-    suffix: "",
-  },
+  // The timeline only lists highlights; the real total is 15+
+  { value: 15, label: "Hackathons", suffix: "+" },
   { value: Number(config.education[0].cgpa), label: "CGPA at IIT Madras", suffix: "", decimals: 2 },
 ];
 
@@ -60,7 +57,10 @@ const StatsCounter = () => {
     <div className="stats-counter" ref={ref}>
       {STATS.map((s) => (
         <div className="stat" key={s.label}>
-          <span className="stat-value">{s.value.toFixed(s.decimals ?? 0)}</span>
+          <span className="stat-number">
+            <span className="stat-value">{s.value.toFixed(s.decimals ?? 0)}</span>
+            {s.suffix}
+          </span>
           <span className="stat-label">{s.label}</span>
         </div>
       ))}

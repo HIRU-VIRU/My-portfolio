@@ -40,7 +40,7 @@ export function initialFX() {
   var landingText2 = new TextSplitter(".landing-h2-info", TextProps);
   var landingText4 = new TextSplitter(".landing-h2-1", TextProps);
 
-  // Train enter and jump for "AI Engineer &"
+  // Train enter and jump for "AI"
   gsap.fromTo(
     landingText4.chars,
     { opacity: 0, x: -1000, y: 0, scale: 1, rotation: 0 },
@@ -54,7 +54,7 @@ export function initialFX() {
     }
   );
 
-  // Train enter and jump for "Full-Stack Dev"
+  // Train enter and jump for "Engineer"
   gsap.fromTo(
     landingText2.chars,
     { opacity: 0, x: -1000, y: 0, scale: 1, rotation: 0 },

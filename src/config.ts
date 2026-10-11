@@ -123,7 +123,7 @@ export const config = {
             event: "KSSEM, Bangalore",
             date: "Nov 2025",
             sortDate: "2025-11-05",
-            description: "Team Zero Vector got shortlisted in top 40 teams for this national-level hackathon at KSSEM, Bangalore. Built a fullstack application to assist the recruitment process for HR and candidates using Agentic AI, Vector Database, and Reranking.",
+            description: "Team Zero Vector got shortlisted in top 40 teams for this national-level hackathon at KSSEM, Bangalore. Built an application to assist the recruitment process for HR and candidates using Agentic AI, Vector Database, and Reranking.",
             github: "https://github.com/hiru-viru/skil-sync-full",
             images: [
                 "/images/timeline/Hack.io/2ce9b3a7-82df-4716-be9a-8d1ab4a6c29b.jpeg",
@@ -387,10 +387,10 @@ export const config = {
             tools: ["Python", "AWS", "LangChain",  "Vector DBs", "ChromaDB"]
         },
         design: {
-            title: "FULL-STACK DEVELOPMENT",
-            description: "Creating robust web applications and APIs",
-            details: "Experienced in building full-stack applications with modern frameworks and architectures. Skilled in developing RESTful APIs, microservices, and real-time systems. Strong foundation in both frontend and backend technologies with focus on scalability and performance.",
-            tools: ["Django", "Flask", "Spring Boot", "React", "Node.js", "MongoDB", "PostgreSQL", "REST APIs"]
+            title: "APPLIED AI & LLM SYSTEMS",
+            description: "Shipping AI from prototype to production",
+            details: "Building LLM-powered products end to end: agentic workflows, retrieval pipelines, evaluation and the APIs that serve them. Focused on grounded, reliable outputs and systems that hold up outside the notebook.",
+            tools: ["LangGraph", "LangChain", "Gemini", "OpenAI", "Hugging Face", "FastAPI", "Vector DBs"]
         }
     }
 };
