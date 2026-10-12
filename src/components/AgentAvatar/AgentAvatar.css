@@ -27,7 +27,7 @@
 /* ---- Agent task card ---- */
 .agent-card {
   position: absolute;
-  top: -110px;
+  top: -130px;
   left: calc(100% - 30px);
   width: 250px;
   padding: 14px 16px 14px;
@@ -259,7 +259,7 @@
 @media only screen and (max-width: 768px) {
   .landing-section .landing-intro {
     margin-top: 0;
-    padding-top: 150px;
+    padding-top: 180px;
   }
 }
 
