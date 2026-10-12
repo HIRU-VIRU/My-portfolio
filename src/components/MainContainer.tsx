@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import About from "./About";
 import Career from "./Career";
 import Contact from "./Contact";
-import Cursor from "./Cursor";
 import Landing from "./Landing";
 import Navbar from "./Navbar";
 import SocialIcons from "./SocialIcons";
@@ -35,7 +34,6 @@ const MainContainer = () => {
   return (
     <div className="container-main">
       <DotGridBackground />
-      <Cursor />
       <Navbar />
       <SocialIcons />
       <div className="container-main">
