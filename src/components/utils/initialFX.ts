@@ -2,7 +2,19 @@ import { TextSplitter } from "../../utils/textSplitter";
 import gsap from "gsap";
 import { lenis } from "../Navbar";
 
+// React StrictMode mounts twice in dev; splitting the text twice breaks it
+let played = false;
+let waits = 0;
+
 export function initialFX() {
+  if (played) return;
+  // The landing page is lazy-loaded, so it may not be in the DOM yet
+  if (!document.querySelector(".landing-intro h1") && waits++ < 100) {
+    window.setTimeout(initialFX, 50);
+    return;
+  }
+  played = true;
+
   document.body.style.overflowY = "auto";
   if (lenis) {
     lenis.start();
@@ -14,129 +26,102 @@ export function initialFX() {
     delay: 1,
   });
 
-  const selectors = [".landing-info h3", ".landing-intro h2", ".landing-intro h1"];
-  const elements = selectors.flatMap(selector => Array.from(document.querySelectorAll(selector)));
-  var landingText = new TextSplitter(elements, {
-    type: "chars,lines",
-    linesClass: "split-line",
-  });
-  
-  // "Train enter and jump" animation for main heading
-  gsap.fromTo(
-    landingText.chars,
-    { opacity: 0, x: -1000, y: 0, scale: 1, rotation: 0 },
-    {
-      keyframes: [
-        { opacity: 1, x: 0, y: -40, duration: 0.5, ease: "power2.out" },
-        { y: 0, duration: 0.6, ease: "bounce.out" }
-      ],
-      stagger: 0.04,
-      delay: 0.3,
-    }
-  );
-
-  let TextProps = { type: "chars,lines", linesClass: "split-h2" };
-
-  var landingText2 = new TextSplitter(".landing-h2-info", TextProps);
-  var landingText4 = new TextSplitter(".landing-h2-1", TextProps);
-
-  // Train enter and jump for "AI Engineer &"
-  gsap.fromTo(
-    landingText4.chars,
-    { opacity: 0, x: -1000, y: 0, scale: 1, rotation: 0 },
-    {
-      keyframes: [
-        { opacity: 1, x: 0, y: -40, duration: 0.5, ease: "power2.out" },
-        { y: 0, duration: 0.6, ease: "bounce.out" }
-      ],
-      stagger: 0.04,
-      delay: 0.8,
-    }
-  );
-
-  // Train enter and jump for "Full-Stack Dev"
-  gsap.fromTo(
-    landingText2.chars,
-    { opacity: 0, x: -1000, y: 0, scale: 1, rotation: 0 },
-    {
-      keyframes: [
-        { opacity: 1, x: 0, y: -40, duration: 0.5, ease: "power2.out" },
-        { y: 0, duration: 0.6, ease: "bounce.out" }
-      ],
-      stagger: 0.04,
-      delay: 1.2,
-    }
-  );
   gsap.fromTo(
     [".header", ".icons-section", ".nav-fade"],
     { opacity: 0 },
-    {
-      opacity: 1,
-      duration: 1.2,
-      ease: "power1.inOut",
-      delay: 0.1,
-    }
+    { opacity: 1, duration: 1.2, ease: "power1.inOut", delay: 0.1 }
   );
 
-  var landingText3 = new TextSplitter(".landing-h2-info-1", TextProps);
-  var landingText4 = new TextSplitter(".landing-h2-1", TextProps);
-  var landingText5 = new TextSplitter(".landing-h2-2", TextProps);
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const split = (selector: string) =>
+    new TextSplitter(selector, { type: "chars,words" }).chars as HTMLElement[];
 
-  LoopText(landingText2, landingText3);
-  LoopText(landingText4, landingText5);
-}
+  const greeting = split(".landing-intro h2");
+  const name = split(".landing-intro h1");
+  const an = split(".landing-info h3");
+  const ai = split(".landing-h2-1");
+  const role = split(".landing-h2-info");
 
-function LoopText(Text1: TextSplitter, Text2: TextSplitter) {
-  var tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
-  const delay = 4;
-  const delay2 = delay * 2 + 1;
+  if (reduced) {
+    gsap.from([...greeting, ...name, ...an, ...ai, ...role], { opacity: 0, duration: 0.6, stagger: 0.01 });
+    return;
+  }
 
-  tl.fromTo(
-    Text2.chars,
-    { opacity: 0, y: 80 },
-    {
-      opacity: 1,
-      duration: 1.2,
-      ease: "power3.inOut",
-      y: 0,
-      stagger: 0.1,
-      delay: delay,
-    },
-    0
-  )
-    .fromTo(
-      Text1.chars,
-      { y: 80 },
+  const r = gsap.utils.random;
+  // Each letter starts somewhere random in 3D space, spinning and blurred,
+  // then flies to its slot and lands with a small overshoot.
+  const flyIn = (chars: HTMLElement[], at: number, spread = 1) =>
+    tl.fromTo(
+      chars,
       {
-        duration: 1.2,
-        ease: "power3.inOut",
+        x: () => r(-700, 700) * spread,
+        y: () => r(-450, 450) * spread,
+        z: () => r(-900, 300),
+        rotationX: () => r(-300, 300),
+        rotationY: () => r(-300, 300),
+        rotationZ: () => r(-120, 120),
+        scale: () => r(0.2, 2.8),
+        opacity: 0,
+        filter: "blur(12px)",
+      },
+      {
+        x: 0,
         y: 0,
-        stagger: 0.1,
-        delay: delay2,
+        z: 0,
+        rotationX: 0,
+        rotationY: 0,
+        rotationZ: 0,
+        scale: 1,
+        opacity: 1,
+        filter: "blur(0px)",
+        duration: 1.5,
+        ease: "expo.out",
+        stagger: { each: 0.035, from: "random" },
       },
-      1
+      at
+    );
+
+  const all = [...greeting, ...name, ...an, ...ai, ...role];
+  gsap.set(all, { display: "inline-block", transformPerspective: 800, willChange: "transform, opacity, filter" });
+
+  const tl = gsap.timeline({ delay: 0.25 });
+  flyIn(greeting, 0, 0.6);
+  flyIn(name, 0.15);
+  flyIn(an, 0.5, 0.6);
+  flyIn(ai, 0.65, 1.2);
+  flyIn(role, 0.8);
+
+  // "AI" lands hard: a squash, a glow and a shockwave ring
+  tl.addLabel("impact", 1.75)
+    .fromTo(
+      ".landing-h2-1",
+      { scale: 1.18 },
+      { scale: 1, duration: 0.9, ease: "elastic.out(1, 0.35)", transformOrigin: "left center" },
+      "impact"
     )
     .fromTo(
-      Text1.chars,
-      { y: 0 },
-      {
-        y: -80,
-        duration: 1.2,
-        ease: "power3.inOut",
-        stagger: 0.1,
-        delay: delay,
-      },
-      0
+      ".landing-shock",
+      { scale: 0.2, opacity: 0.9 },
+      { scale: 3.2, opacity: 0, duration: 1.1, ease: "power2.out" },
+      "impact"
     )
-    .to(
-      Text2.chars,
-      {
-        y: -80,
-        duration: 1.2,
-        ease: "power3.inOut",
-        stagger: 0.1,
-        delay: delay2,
-      },
-      1
-    );
+    .fromTo(
+      ai,
+      { textShadow: "0 0 40px rgba(var(--accentRgb), 1)" },
+      { textShadow: "0 0 0px rgba(var(--accentRgb), 0)", duration: 1.2, ease: "power2.out" },
+      "impact"
+    )
+    .set(all, { clearProps: "filter,willChange" });
+
+  // Afterwards the role does a small wave every few seconds so it stays alive
+  tl.add(() => {
+    gsap
+      .timeline({ repeat: -1, repeatDelay: 5 })
+      .to([...ai, ...role], {
+        y: -10,
+        duration: 0.25,
+        ease: "power2.out",
+        stagger: { each: 0.04, yoyo: true, repeat: 1 },
+      });
+  }, "+=2");
 }

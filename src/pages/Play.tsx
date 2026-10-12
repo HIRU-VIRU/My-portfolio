@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { TransitionLink } from "../context/PageTransition";
 import { Chess, Square, PieceSymbol, Color } from "chess.js";
 import RedoxChessEngine from "../utils/redoxchessEngine";
 import "./Play.css";
@@ -309,9 +309,9 @@ const Play = () => {
     <div className="play-page">
       {/* Header */}
       <div className="play-header">
-        <Link to="/" className="back-button" data-cursor="disable">
+        <TransitionLink to="/" className="back-button" data-cursor="disable">
           ← Back to Home
-        </Link>
+        </TransitionLink>
       </div>
 
       <div className="chess-container">

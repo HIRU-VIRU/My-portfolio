@@ -18,7 +18,7 @@
   line-height: 70px;
   font-weight: 400;
   text-align: center;
-  background: linear-gradient(0deg, #00ff88, #ffffff);
+  background: linear-gradient(0deg, var(--accentColor), #ffffff);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -65,7 +65,7 @@
 
 .edu-card-accent {
   height: 4px;
-  background: linear-gradient(90deg, #00ff88, #00ff88, #00ff88);
+  background: linear-gradient(90deg, var(--accentColor), var(--accentColor), var(--accentColor));
 }
 
 .edu-card-content {
@@ -112,7 +112,7 @@
   font-weight: 500;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: #00ff88;
+  color: var(--accentColor);
   background: rgba(170, 66, 255, 0.12);
   padding: 4px 12px;
   border-radius: 20px;
@@ -138,7 +138,7 @@
 .edu-cgpa {
   font-size: 15px;
   font-weight: 600;
-  color: #00ff88;
+  color: var(--accentColor);
   background: rgba(127, 64, 255, 0.1);
   padding: 6px 14px;
   border-radius: 20px;
@@ -167,7 +167,7 @@
   content: "▹";
   position: absolute;
   left: 0;
-  color: #00ff88;
+  color: var(--accentColor);
   font-size: 14px;
 }
 

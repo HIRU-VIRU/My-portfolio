@@ -18,7 +18,7 @@
   line-height: 70px;
   font-weight: 400;
   text-align: center;
-  background: linear-gradient(0deg, #00ff88, #ffffff);
+  background: linear-gradient(0deg, var(--accentColor), #ffffff);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -52,8 +52,8 @@
 
 .cert-card:hover {
   transform: translateY(-8px);
-  border-color: rgba(0, 255, 136, 0.5);
-  box-shadow: 0 15px 50px rgba(0, 255, 136, 0.2);
+  border-color: rgba(var(--accentRgb), 0.5);
+  box-shadow: 0 15px 50px rgba(var(--accentRgb), 0.2);
 }
 
 .cert-image {
@@ -85,7 +85,7 @@
 }
 
 .cert-pdf-placeholder p {
-  color: #00ff88;
+  color: var(--accentColor);
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.5px;
@@ -115,14 +115,14 @@
   gap: 6px;
   font-size: 14px;
   font-weight: 500;
-  color: #00ff88;
+  color: var(--accentColor);
   text-decoration: none;
   transition: all 0.3s ease;
   letter-spacing: 0.5px;
 }
 
 .cert-link:hover {
-  color: #00ff88;
+  color: var(--accentColor);
   gap: 10px;
 }
 
@@ -136,8 +136,8 @@
   font-weight: 600;
   letter-spacing: 1px;
   color: #fff;
-  background: rgba(0, 255, 136, 0.1);
-  border: 2px solid rgba(0, 255, 136, 0.4);
+  background: rgba(var(--accentRgb), 0.1);
+  border: 2px solid rgba(var(--accentRgb), 0.4);
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -145,10 +145,10 @@
 }
 
 .show-more-btn:hover {
-  background: rgba(0, 255, 136, 0.2);
-  border-color: rgba(0, 255, 136, 0.7);
+  background: rgba(var(--accentRgb), 0.2);
+  border-color: rgba(var(--accentRgb), 0.7);
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2);
+  box-shadow: 0 10px 30px rgba(var(--accentRgb), 0.2);
 }
 
 .show-more-btn:active {
@@ -209,4 +209,12 @@
   .cert-content h3 {
     font-size: 18px;
   }
+}
+
+.cert-pdf-placeholder {
+  color: var(--accentColor);
+}
+
+.cert-tilt .tilt-card-inner {
+  overflow: hidden;
 }

@@ -7,38 +7,41 @@ const MainContainer = lazy(() => import("./components/MainContainer"));
 const MyWorks = lazy(() => import("./pages/MyWorks"));
 const Play = lazy(() => import("./pages/Play"));
 import { LoadingProvider } from "./context/LoadingProvider";
+import { PageTransitionProvider } from "./context/PageTransition";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <LoadingProvider>
-              <Suspense>
-                <MainContainer />
+      <PageTransitionProvider>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <LoadingProvider>
+                <Suspense>
+                  <MainContainer />
+                </Suspense>
+              </LoadingProvider>
+            }
+          />
+          <Route
+            path="/myworks"
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <MyWorks />
               </Suspense>
-            </LoadingProvider>
-          }
-        />
-        <Route
-          path="/myworks"
-          element={
-            <Suspense fallback={<div>Loading...</div>}>
-              <MyWorks />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/play"
-          element={
-            <Suspense fallback={<div>Loading...</div>}>
-              <Play />
-            </Suspense>
-          }
-        />
-      </Routes>
+            }
+          />
+          <Route
+            path="/play"
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <Play />
+              </Suspense>
+            }
+          />
+        </Routes>
+      </PageTransitionProvider>
       <Analytics />
     </BrowserRouter>
   );

@@ -117,7 +117,7 @@
   padding: 8px 16px;
   border: 1px solid var(--accentColor);
   border-radius: 20px;
-  background: rgba(0, 255, 136, 0.1);
+  background: rgba(var(--accentRgb), 0.1);
 }
 
 .work-github-link:hover {
@@ -144,7 +144,7 @@
   padding: 10px 20px;
   border: 1px solid var(--accentColor);
   border-radius: 25px;
-  background: rgba(0, 255, 136, 0.1);
+  background: rgba(var(--accentRgb), 0.1);
 }
 
 .work-github-link:hover {
@@ -342,7 +342,7 @@
 
 .see-all-btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(0, 255, 136, 0.4);
+  box-shadow: 0 10px 30px rgba(var(--accentRgb), 0.4);
 }
 
 /* Mobile: Stack work items vertically when GSAP pinning is disabled */
@@ -402,5 +402,122 @@
 
   .see-all-works p {
     font-size: 14px;
+  }
+}
+/* ===== Project covers, metric line and tags ===== */
+.work-cover-parallax {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  will-change: transform;
+}
+
+.work-cover {
+  width: 100%;
+  max-width: 440px;
+  border-radius: 14px;
+}
+
+.work-cover .tilt-card-inner {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.7);
+  transition: border-color 0.4s, box-shadow 0.4s;
+}
+
+.work-cover.is-tilting .tilt-card-inner {
+  border-color: rgba(var(--accentRgb), 0.5);
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.7),
+    0 0 40px rgba(var(--accentRgb), 0.15);
+}
+
+.work-cover a {
+  display: block;
+  position: relative;
+  color: inherit;
+}
+
+.work-cover-link {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  color: var(--backgroundColor);
+  background: var(--accentColor);
+  transform: scale(0.6) translateZ(40px);
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.work-cover:hover .work-cover-link {
+  opacity: 1;
+  transform: scale(1) translateZ(40px);
+}
+
+.work-info .work-metric {
+  margin-top: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--accentColor);
+}
+
+.work-tags {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.work-tags li {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.see-all-count {
+  font-size: 110px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--accentColor);
+}
+
+.see-all-works h3 {
+  margin: 0;
+}
+
+@media only screen and (max-height: 900px) {
+  .work-cover {
+    max-width: 380px;
+  }
+}
+
+@media only screen and (max-height: 650px) {
+  .work-cover {
+    max-width: 300px;
+  }
+  .work-tags {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .work-tags li {
+    font-size: 11px;
+  }
+  .see-all-count {
+    font-size: 80px;
   }
 }

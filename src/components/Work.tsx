@@ -1,13 +1,19 @@
 import "./styles/Work.css";
-import WorkImage from "./WorkImage";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect } from "react";
 import { config } from "../config";
-import { Link } from "react-router-dom";
 import { FaGithub } from "react-icons/fa";
+import { MdArrowOutward } from "react-icons/md";
+import ProjectCover from "./ProjectCover";
+import TiltCard from "./effects/TiltCard";
+import Magnetic from "./effects/Magnetic";
+import { TransitionLink } from "../context/PageTransition";
 
 gsap.registerPlugin(ScrollTrigger);
+
+// Featured on the home page: SkillSync, Sticky-Net, M&A RAG Agent
+const FEATURED = [1, 2, 3];
 
 const Work = () => {
   useEffect(() => {
@@ -50,6 +56,14 @@ const Work = () => {
       ease: "none",
     });
 
+    // Covers drift against the scroll direction for a parallax feel
+    timeline.fromTo(
+      ".work-cover-parallax",
+      { xPercent: 6 },
+      { xPercent: -6, ease: "none" },
+      0
+    );
+
     // Refresh ScrollTrigger after layout settles
     ScrollTrigger.refresh();
 
@@ -59,6 +73,7 @@ const Work = () => {
       ScrollTrigger.getById("work")?.kill();
     };
   }, []);
+
   return (
     <div className="work-section" id="work">
       <div className="work-container section-container">
@@ -66,9 +81,8 @@ const Work = () => {
           My <span>Work</span>
         </h2>
         <div className="work-flex">
-          {/* Display top 3 featured projects: SkillSync, Sticky-Net, M&A RAG Agent */}
           {config.projects
-            .filter((project) => [1, 2, 3].includes(project.id))
+            .filter((project) => FEATURED.includes(project.id))
             .map((project, index) => (
               <div className="work-box" key={project.id}>
                 <div className="work-info">
@@ -80,33 +94,60 @@ const Work = () => {
                       <p>{project.category}</p>
                     </div>
                   </div>
-                  <h4>Tools and features</h4>
-                  <p>{project.technologies}</p>
-                  
+                  <p className="work-metric">{project.metric}</p>
+                  <ul className="work-tags">
+                    {project.tags.map((tag) => (
+                      <li key={tag}>{tag}</li>
+                    ))}
+                  </ul>
+
                   <div className="work-actions">
-                    <a 
-                      href={project.github} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="work-github-link"
-                      data-cursor="disable"
-                    >
-                      <FaGithub />
-                      GitHub
-                    </a>
+                    <Magnetic>
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="work-github-link"
+                        data-cursor="disable"
+                      >
+                        <FaGithub />
+                        GitHub
+                      </a>
+                    </Magnetic>
                   </div>
                 </div>
-                <WorkImage image={project.image} alt={project.title} />
+                <div className="work-cover-parallax">
+                  <TiltCard className="work-cover">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-cursor="disable"
+                      aria-label={`${project.title} on GitHub`}
+                    >
+                      <ProjectCover id={project.id} domain={project.domain} />
+                      <span className="work-cover-link">
+                        <MdArrowOutward />
+                      </span>
+                    </a>
+                  </TiltCard>
+                </div>
               </div>
             ))}
           {/* See All Works Button */}
           <div className="work-box work-box-cta">
             <div className="see-all-works">
-              <h3>Want to see more?</h3>
-              <p>Explore all of my projects and creations</p>
-              <Link to="/myworks" className="see-all-btn" data-cursor="disable">
-                See All Works →
-              </Link>
+              <span className="see-all-count">{config.projects.length}</span>
+              <h3>projects and counting</h3>
+              <p>
+                Agents, computer vision, AI safety, EdTech and automation — all
+                in one place.
+              </p>
+              <Magnetic>
+                <TransitionLink to="/myworks" className="see-all-btn" data-cursor="disable">
+                  See All Works →
+                </TransitionLink>
+              </Magnetic>
             </div>
           </div>
         </div>

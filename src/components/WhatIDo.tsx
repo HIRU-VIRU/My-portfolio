@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import useSpotlight from "./effects/useSpotlight";
 import "./styles/WhatIDo.css";
 import { config } from "../config";
 import gsap from "gsap";
@@ -7,6 +8,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const WhatIDo = () => {
+  const gridRef = useRef<HTMLDivElement>(null);
+  useSpotlight(gridRef);
+
   useEffect(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -41,11 +45,11 @@ const WhatIDo = () => {
       <h2>
         My <span>Education</span>
       </h2>
-      <div className="edu-grid">
+      <div className="edu-grid" ref={gridRef}>
         {config.education.map((edu, index) => (
           <div 
             key={index} 
-            className="edu-card"
+            className="edu-card spotlight-card"
             onClick={() => edu.link && window.open(edu.link, '_blank')}
             style={{ cursor: edu.link ? 'pointer' : 'default' }}
           >

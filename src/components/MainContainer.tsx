@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import About from "./About";
 import Career from "./Career";
 import Contact from "./Contact";
-import Cursor from "./Cursor";
 import Landing from "./Landing";
 import Navbar from "./Navbar";
 import SocialIcons from "./SocialIcons";
@@ -12,7 +11,8 @@ import TechStackNew from "./TechStackNew";
 import CallToAction from "./CallToAction";
 import Certifications from "./Certifications";
 import setSplitText from "./utils/splitText";
-import ParticlesBackground from "./ParticlesBackground";
+import DotGridBackground from "./DotGridBackground";
+import VelocityMarquee from "./VelocityMarquee";
 
 const MainContainer = () => {
   const [isDesktopView, setIsDesktopView] = useState<boolean>(
@@ -33,14 +33,14 @@ const MainContainer = () => {
 
   return (
     <div className="container-main">
-      <ParticlesBackground />
-      <Cursor />
+      <DotGridBackground />
       <Navbar />
       <SocialIcons />
       <div className="container-main">
         <Landing />
         <About />
         <WhatIDo />
+        <VelocityMarquee />
         <Career />
         <Work />
         <Certifications />

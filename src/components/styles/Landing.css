@@ -319,9 +319,9 @@
   width: 400px;
   height: 400px;
   z-index: 1;
-  background-color: #00ff88;
+  background-color: var(--accentColor);
   transform: translate(-50%, 36%) scaleX(1.4);
-  box-shadow: inset 66px 35px 85px 0px rgba(0, 255, 136, 0.65);
+  box-shadow: inset 66px 35px 85px 0px rgba(var(--accentRgb), 0.65);
   filter: blur(50px);
   border-radius: 50%;
   top: 50%;
@@ -414,7 +414,7 @@
   font-size: 28px;
   line-height: 28px;
   font-weight: 500;
-  font-family: "Geist", sans-serif;
+  font-family: var(--displayFont);
 }
 
 /* .landing-intro h1 span {
@@ -443,7 +443,7 @@
   margin: 0;
   margin-top: -20px;
   margin-left: 20px;
-  font-family: "Geist", sans-serif;
+  font-family: var(--displayFont);
   font-weight: 600;
   font-size: 28px;
   line-height: 40px;
@@ -467,11 +467,11 @@
 }
 
 h2.landing-info-h2 {
-  color: #00ff88;
+  color: var(--accentColor);
   font-size: 36px;
   width: 150%;
   margin: 0;
-  font-family: "Geist", sans-serif;
+  font-family: var(--displayFont);
   font-weight: 600;
   position: relative;
   margin-left: -5px;
@@ -634,5 +634,39 @@ h2.landing-info-h2 {
 
   h2.landing-info-h2 {
     font-size: 75px;
+  }
+}
+/* ===== Flying-letter intro ===== */
+.landing-section .split-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.landing-section .split-char {
+  display: inline-block;
+  backface-visibility: hidden;
+}
+
+/* Ring that bursts behind "AI" when it lands */
+.landing-shock {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid var(--accentColor);
+  box-shadow: 0 0 40px rgba(var(--accentRgb), 0.5), inset 0 0 30px rgba(var(--accentRgb), 0.35);
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Phones: the desktop 150% width pushes "AI" off screen */
+@media only screen and (max-width: 768px) {
+  .landing-section h2.landing-info-h2 {
+    width: auto !important;
+    margin-left: 0 !important;
+    text-align: center;
   }
 }
